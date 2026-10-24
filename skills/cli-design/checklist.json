@@ -1,0 +1,1980 @@
+{
+  "schema_version": 1,
+  "skill": "cli-design",
+  "generated_by": "scripts/build-checklist.cjs",
+  "rule_count": 156,
+  "rules": [
+    {
+      "id": "CLI-ANL-001",
+      "title": "Do not send usage or crash data without consent",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-anl-001-do-not-send-usage-or-crash-data-without-consent",
+      "source": "https://clig.dev/#analytics"
+    },
+    {
+      "id": "CLI-ANL-002",
+      "title": "Prefer explicit opt-in for telemetry",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-anl-002-prefer-explicit-opt-in-for-telemetry",
+      "source": "https://clig.dev/#analytics"
+    },
+    {
+      "id": "CLI-ANL-003",
+      "title": "If telemetry is on by default, announce it and make disabling easy",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-anl-003-if-telemetry-is-on-by-default-announce-it-and-make-disabling-easy",
+      "source": "https://clig.dev/#analytics"
+    },
+    {
+      "id": "CLI-ANL-004",
+      "title": "Disclose exactly what is collected, why, and for how long",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-anl-004-disclose-exactly-what-is-collected-why-and-for-how-long",
+      "source": "https://clig.dev/#analytics"
+    },
+    {
+      "id": "CLI-ANL-005",
+      "title": "Consider alternatives to collecting analytics",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-anl-005-consider-alternatives-to-collecting-analytics",
+      "source": "https://clig.dev/#analytics"
+    },
+    {
+      "id": "CLI-ARG-001",
+      "title": "Prefer flags over positional arguments",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-001-prefer-flags-over-positional-arguments",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-002",
+      "title": "Provide a long form for every flag",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-002-provide-a-long-form-for-every-flag",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-003",
+      "title": "Reserve one-letter flags for frequently used options",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-003-reserve-one-letter-flags-for-frequently-used-options",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-004",
+      "title": "Accept multiple arguments for the same action on many items",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-004-accept-multiple-arguments-for-the-same-action-on-many-items",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-005",
+      "title": "Avoid multiple positional arguments with different roles",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-005-avoid-multiple-positional-arguments-with-different-roles",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-006",
+      "title": "Use standard flag names where a convention exists",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-006-use-standard-flag-names-where-a-convention-exists",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-007",
+      "title": "Do not make -v ambiguous",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-007-do-not-make--v-ambiguous",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-008",
+      "title": "Make the default behavior right for most users",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-008-make-the-default-behavior-right-for-most-users",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-009",
+      "title": "Prompt for missing input when running interactively",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-009-prompt-for-missing-input-when-running-interactively",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-010",
+      "title": "Never require a prompt",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-010-never-require-a-prompt",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-011",
+      "title": "Confirm before dangerous operations",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-011-confirm-before-dangerous-operations",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-012",
+      "title": "Scale confirmation friction to the level of danger",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-012-scale-confirmation-friction-to-the-level-of-danger",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-013",
+      "title": "Treat indirect destruction as severe",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-013-treat-indirect-destruction-as-severe",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-014",
+      "title": "Accept - for stdin and stdout wherever a file is expected",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-014-accept---for-stdin-and-stdout-wherever-a-file-is-expected",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-015",
+      "title": "Use a sentinel word such as none for optional flag values",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-015-use-a-sentinel-word-such-as-none-for-optional-flag-values",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-016",
+      "title": "Make flags and subcommands order-independent",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-016-make-flags-and-subcommands-order-independent",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-017",
+      "title": "Support standard option syntax: --flag=value, --flag value and --",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-017-support-standard-option-syntax---flagvalue---flag-value-and---",
+      "source": "original"
+    },
+    {
+      "id": "CLI-ARG-018",
+      "title": "Never accept secrets as flag values",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-018-never-accept-secrets-as-flag-values",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-019",
+      "title": "Accept secrets through a file or stdin",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARGUMENTS-AND-FLAGS.md",
+      "anchor": "ARGUMENTS-AND-FLAGS.md#cli-arg-019-accept-secrets-through-a-file-or-stdin",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-BAS-001",
+      "title": "Parse arguments with an established library",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "THE-BASICS.md",
+      "anchor": "THE-BASICS.md#cli-bas-001-parse-arguments-with-an-established-library",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-002",
+      "title": "Exit zero on success and non-zero on failure",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "THE-BASICS.md",
+      "anchor": "THE-BASICS.md#cli-bas-002-exit-zero-on-success-and-non-zero-on-failure",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-003",
+      "title": "Map distinct non-zero exit codes to the important failure modes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "THE-BASICS.md",
+      "anchor": "THE-BASICS.md#cli-bas-003-map-distinct-non-zero-exit-codes-to-the-important-failure-modes",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-004",
+      "title": "Send primary and machine-readable output to stdout",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "THE-BASICS.md",
+      "anchor": "THE-BASICS.md#cli-bas-004-send-primary-and-machine-readable-output-to-stdout",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-005",
+      "title": "Send logs, progress, warnings and errors to stderr",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "THE-BASICS.md",
+      "anchor": "THE-BASICS.md#cli-bas-005-send-logs-progress-warnings-and-errors-to-stderr",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-CFG-001",
+      "title": "Expose per-invocation settings as flags",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-001-expose-per-invocation-settings-as-flags",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-002",
+      "title": "Accept machine- or user-specific settings via flags and environment variables",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-002-accept-machine--or-user-specific-settings-via-flags-and-environment-variables",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-003",
+      "title": "Keep project-wide settings in a version-controlled, tool-specific file",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-003-keep-project-wide-settings-in-a-version-controlled-tool-specific-file",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-004",
+      "title": "Store user config, cache, data, and state in XDG base directories",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-004-store-user-config-cache-data-and-state-in-xdg-base-directories",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-005",
+      "title": "Get consent before modifying configuration owned by other programs",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-005-get-consent-before-modifying-configuration-owned-by-other-programs",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-006",
+      "title": "Prefer a drop-in file over editing a shared config file",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-006-prefer-a-drop-in-file-over-editing-a-shared-config-file",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-007",
+      "title": "Mark edits to shared config files with dated delimiters",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-007-mark-edits-to-shared-config-files-with-dated-delimiters",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-008",
+      "title": "Apply configuration sources in a fixed precedence order",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-cfg-008-apply-configuration-sources-in-a-fixed-precedence-order",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-DOC-001",
+      "title": "Provide web-based documentation",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-doc-001-provide-web-based-documentation",
+      "source": "https://clig.dev/#documentation"
+    },
+    {
+      "id": "CLI-DOC-002",
+      "title": "Provide documentation in the terminal",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-doc-002-provide-documentation-in-the-terminal",
+      "source": "https://clig.dev/#documentation"
+    },
+    {
+      "id": "CLI-DOC-003",
+      "title": "Consider shipping man pages",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "probe",
+        "static"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-doc-003-consider-shipping-man-pages",
+      "source": "https://clig.dev/#documentation"
+    },
+    {
+      "id": "CLI-DOC-004",
+      "title": "Make terminal docs reachable through the tool itself",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-doc-004-make-terminal-docs-reachable-through-the-tool-itself",
+      "source": "https://clig.dev/#documentation"
+    },
+    {
+      "id": "CLI-DST-001",
+      "title": "Distribute as a single self-contained binary where possible",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-001-distribute-as-a-single-self-contained-binary-where-possible",
+      "source": "https://clig.dev/#distribution"
+    },
+    {
+      "id": "CLI-DST-002",
+      "title": "Use the platform package manager when a single binary is not possible",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-002-use-the-platform-package-manager-when-a-single-binary-is-not-possible",
+      "source": "https://clig.dev/#distribution"
+    },
+    {
+      "id": "CLI-DST-003",
+      "title": "Make uninstall easy and document it beside install instructions",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-003-make-uninstall-easy-and-document-it-beside-install-instructions",
+      "source": "https://clig.dev/#distribution"
+    },
+    {
+      "id": "CLI-DST-004",
+      "title": "Provide --version output that includes build information",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-004-provide---version-output-that-includes-build-information",
+      "source": "original"
+    },
+    {
+      "id": "CLI-DST-005",
+      "title": "Publish through the package managers your users already use",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-005-publish-through-the-package-managers-your-users-already-use",
+      "source": "original"
+    },
+    {
+      "id": "CLI-DST-006",
+      "title": "Publish checksums and signatures for release artifacts",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-006-publish-checksums-and-signatures-for-release-artifacts",
+      "source": "original"
+    },
+    {
+      "id": "CLI-DST-007",
+      "title": "Ship shell completions for bash, zsh, fish, and PowerShell",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-007-ship-shell-completions-for-bash-zsh-fish-and-powershell",
+      "source": "original"
+    },
+    {
+      "id": "CLI-DST-008",
+      "title": "Install a man page or offline help with the package",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "probe"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-dst-008-install-a-man-page-or-offline-help-with-the-package",
+      "source": "original"
+    },
+    {
+      "id": "CLI-ENV-001",
+      "title": "Use environment variables for context-dependent behavior",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-001-use-environment-variables-for-context-dependent-behavior",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-002",
+      "title": "Name environment variables with uppercase letters, digits, and underscores only",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-002-name-environment-variables-with-uppercase-letters-digits-and-underscores-only",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-003",
+      "title": "Keep environment variable values single-line",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-003-keep-environment-variable-values-single-line",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-004",
+      "title": "Do not repurpose widely used environment variable names",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-004-do-not-repurpose-widely-used-environment-variable-names",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-005",
+      "title": "Honor standard general-purpose environment variables",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-005-honor-standard-general-purpose-environment-variables",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-006",
+      "title": "Read project-scoped environment variables from a local .env file",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-006-read-project-scoped-environment-variables-from-a-local-env-file",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-007",
+      "title": "Do not use .env as a substitute for a real config file",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-007-do-not-use-env-as-a-substitute-for-a-real-config-file",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-008",
+      "title": "Do not accept secrets through environment variables",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CONFIGURATION-AND-ENV.md",
+      "anchor": "CONFIGURATION-AND-ENV.md#cli-env-008-do-not-accept-secrets-through-environment-variables",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ERR-001",
+      "title": "Catch expected errors and rewrite them for humans",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ERRORS.md",
+      "anchor": "ERRORS.md#cli-err-001-catch-expected-errors-and-rewrite-them-for-humans",
+      "source": "https://clig.dev/#errors"
+    },
+    {
+      "id": "CLI-ERR-002",
+      "title": "Keep error output high signal and group repeated errors",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ERRORS.md",
+      "anchor": "ERRORS.md#cli-err-002-keep-error-output-high-signal-and-group-repeated-errors",
+      "source": "https://clig.dev/#errors"
+    },
+    {
+      "id": "CLI-ERR-003",
+      "title": "Put the most important information where the user looks first",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "ERRORS.md",
+      "anchor": "ERRORS.md#cli-err-003-put-the-most-important-information-where-the-user-looks-first",
+      "source": "https://clig.dev/#errors"
+    },
+    {
+      "id": "CLI-ERR-004",
+      "title": "Give debug detail and bug-report instructions for unexpected errors",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ERRORS.md",
+      "anchor": "ERRORS.md#cli-err-004-give-debug-detail-and-bug-report-instructions-for-unexpected-errors",
+      "source": "https://clig.dev/#errors"
+    },
+    {
+      "id": "CLI-ERR-005",
+      "title": "Make submitting a bug report effortless",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ERRORS.md",
+      "anchor": "ERRORS.md#cli-err-005-make-submitting-a-bug-report-effortless",
+      "source": "https://clig.dev/#errors"
+    },
+    {
+      "id": "CLI-FUT-001",
+      "title": "Treat every user-facing surface as a stable interface",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-001-treat-every-user-facing-surface-as-a-stable-interface",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-002",
+      "title": "Prefer additive changes",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-002-prefer-additive-changes",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-003",
+      "title": "Warn in the program before making a non-additive change",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-003-warn-in-the-program-before-making-a-non-additive-change",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-004",
+      "title": "Offer a future-proof form today and stop warning once users adopt it",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-004-offer-a-future-proof-form-today-and-stop-warning-once-users-adopt-it",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-005",
+      "title": "Treat machine-readable output as a versioned contract",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-005-treat-machine-readable-output-as-a-versioned-contract",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-006",
+      "title": "Let human-readable output evolve and point scripts at stable formats",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-006-let-human-readable-output-evolve-and-point-scripts-at-stable-formats",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-007",
+      "title": "Do not use a catch-all default subcommand",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-007-do-not-use-a-catch-all-default-subcommand",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-008",
+      "title": "Do not accept arbitrary abbreviations of subcommands or flags",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-008-do-not-accept-arbitrary-abbreviations-of-subcommands-or-flags",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-009",
+      "title": "Do not build in time bombs",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-009-do-not-build-in-time-bombs",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-010",
+      "title": "Never block on telemetry, update checks or analytics",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-010-never-block-on-telemetry-update-checks-or-analytics",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-FUT-011",
+      "title": "Version releases by the CLI contract with semantic versioning",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "FUTURE-PROOFING.md",
+      "anchor": "FUTURE-PROOFING.md#cli-fut-011-version-releases-by-the-cli-contract-with-semantic-versioning",
+      "source": "https://clig.dev/#future-proofing"
+    },
+    {
+      "id": "CLI-HLP-001",
+      "title": "Show full help for -h and --help, including on subcommands",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-001-show-full-help-for--h-and---help-including-on-subcommands",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-002",
+      "title": "Show help when -h or --help appears anywhere, ignoring other arguments",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-002-show-help-when--h-or---help-appears-anywhere-ignoring-other-arguments",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-003",
+      "title": "Reserve -h for help",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-003-reserve--h-for-help",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-004",
+      "title": "Offer a help subcommand in git-like tools",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-004-offer-a-help-subcommand-in-git-like-tools",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-005",
+      "title": "Show concise help when required arguments are missing",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-005-show-concise-help-when-required-arguments-are-missing",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-006",
+      "title": "Limit concise help to a description, examples, key flags and a pointer to --help",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-006-limit-concise-help-to-a-description-examples-key-flags-and-a-pointer-to---help",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-007",
+      "title": "Include a support path in top-level help",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-007-include-a-support-path-in-top-level-help",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-008",
+      "title": "Link help text to web documentation",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-008-link-help-text-to-web-documentation",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-009",
+      "title": "Lead help with examples",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-009-lead-help-with-examples",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-010",
+      "title": "Move exhaustive examples and tutorials out of help",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "manual"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-010-move-exhaustive-examples-and-tutorials-out-of-help",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-011",
+      "title": "List the most common flags and commands first",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-011-list-the-most-common-flags-and-commands-first",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-012",
+      "title": "Format help for scanning, without leaking escape codes",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-012-format-help-for-scanning-without-leaking-escape-codes",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-013",
+      "title": "Suggest a correction when input is probably a typo",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-013-suggest-a-correction-when-input-is-probably-a-typo",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-014",
+      "title": "Do not silently execute a guessed correction",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-014-do-not-silently-execute-a-guessed-correction",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-015",
+      "title": "Do not hang waiting on an interactive stdin",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "HELP-AND-DOCS.md",
+      "anchor": "HELP-AND-DOCS.md#cli-hlp-015-do-not-hang-waiting-on-an-interactive-stdin",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-INT-001",
+      "title": "Prompt only when stdin is a TTY",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "INTERACTIVITY.md",
+      "anchor": "INTERACTIVITY.md#cli-int-001-prompt-only-when-stdin-is-a-tty",
+      "source": "https://clig.dev/#interactivity"
+    },
+    {
+      "id": "CLI-INT-002",
+      "title": "Honor --no-input by disabling all prompts",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "INTERACTIVITY.md",
+      "anchor": "INTERACTIVITY.md#cli-int-002-honor---no-input-by-disabling-all-prompts",
+      "source": "https://clig.dev/#interactivity"
+    },
+    {
+      "id": "CLI-INT-003",
+      "title": "Do not echo passwords as they are typed",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "INTERACTIVITY.md",
+      "anchor": "INTERACTIVITY.md#cli-int-003-do-not-echo-passwords-as-they-are-typed",
+      "source": "https://clig.dev/#interactivity"
+    },
+    {
+      "id": "CLI-INT-004",
+      "title": "Let the user escape at any time",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe",
+        "manual"
+      ],
+      "doc": "INTERACTIVITY.md",
+      "anchor": "INTERACTIVITY.md#cli-int-004-let-the-user-escape-at-any-time",
+      "source": "https://clig.dev/#interactivity"
+    },
+    {
+      "id": "CLI-INT-005",
+      "title": "Explain how to exit when Ctrl-C is passed through",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "INTERACTIVITY.md",
+      "anchor": "INTERACTIVITY.md#cli-int-005-explain-how-to-exit-when-ctrl-c-is-passed-through",
+      "source": "https://clig.dev/#interactivity"
+    },
+    {
+      "id": "CLI-NAM-001",
+      "title": "Choose a simple, memorable, distinctive word",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-nam-001-choose-a-simple-memorable-distinctive-word",
+      "source": "https://clig.dev/#naming"
+    },
+    {
+      "id": "CLI-NAM-002",
+      "title": "Use only lowercase letters, with dashes only when necessary",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-nam-002-use-only-lowercase-letters-with-dashes-only-when-necessary",
+      "source": "https://clig.dev/#naming"
+    },
+    {
+      "id": "CLI-NAM-003",
+      "title": "Keep the name short but not reserved-utility short",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-nam-003-keep-the-name-short-but-not-reserved-utility-short",
+      "source": "https://clig.dev/#naming"
+    },
+    {
+      "id": "CLI-NAM-004",
+      "title": "Make the name easy to type",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "manual"
+      ],
+      "doc": "NAMING-AND-DISTRIBUTION.md",
+      "anchor": "NAMING-AND-DISTRIBUTION.md#cli-nam-004-make-the-name-easy-to-type",
+      "source": "https://clig.dev/#naming"
+    },
+    {
+      "id": "CLI-OUT-001",
+      "title": "Design default output for humans and detect the TTY per stream",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-001-design-default-output-for-humans-and-detect-the-tty-per-stream",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-002",
+      "title": "Keep default output composable as lines of text",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-002-keep-default-output-composable-as-lines-of-text",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-003",
+      "title": "Provide --plain when human formatting breaks one-record-per-line",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-003-provide---plain-when-human-formatting-breaks-one-record-per-line",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-004",
+      "title": "Support --json for structured output",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-004-support---json-for-structured-output",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-005",
+      "title": "Treat JSON output as a stable, clean contract",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-005-treat-json-output-as-a-stable-clean-contract",
+      "source": "original"
+    },
+    {
+      "id": "CLI-OUT-006",
+      "title": "Print brief output on success",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-006-print-brief-output-on-success",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-007",
+      "title": "Offer -q to suppress non-essential output",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-007-offer--q-to-suppress-non-essential-output",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-008",
+      "title": "Tell the user when state changes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-008-tell-the-user-when-state-changes",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-009",
+      "title": "Make the current state easy to inspect",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-009-make-the-current-state-easy-to-inspect",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-010",
+      "title": "Suggest the next commands to run",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-010-suggest-the-next-commands-to-run",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-011",
+      "title": "Make actions that cross the program's boundary explicit",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-011-make-actions-that-cross-the-programs-boundary-explicit",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-012",
+      "title": "Increase information density with compact, scannable formatting",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-012-increase-information-density-with-compact-scannable-formatting",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-013",
+      "title": "Use color with intention",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-013-use-color-with-intention",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-014",
+      "title": "Disable color when not on a terminal or when the user asks",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-014-disable-color-when-not-on-a-terminal-or-when-the-user-asks",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-015",
+      "title": "Show animations only when the stream is a terminal",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-015-show-animations-only-when-the-stream-is-a-terminal",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-016",
+      "title": "Use symbols and emoji only where they add clarity",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-016-use-symbols-and-emoji-only-where-they-add-clarity",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-017",
+      "title": "Hide developer-only information by default",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-017-hide-developer-only-information-by-default",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-018",
+      "title": "Do not format stderr as a log file by default",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-018-do-not-format-stderr-as-a-log-file-by-default",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-019",
+      "title": "Page long output only when interactive, with safe options",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "OUTPUT.md",
+      "anchor": "OUTPUT.md#cli-out-019-page-long-output-only-when-interactive-with-safe-options",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-ROB-001",
+      "title": "Validate input before doing any work",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-001-validate-input-before-doing-any-work",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-002",
+      "title": "Respond within 100 ms",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-002-respond-within-100-ms",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-003",
+      "title": "Show progress for long operations",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-003-show-progress-for-long-operations",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-004",
+      "title": "Keep parallel work and its output coherent",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-004-keep-parallel-work-and-its-output-coherent",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-005",
+      "title": "Print the hidden logs when an operation fails",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-005-print-the-hidden-logs-when-an-operation-fails",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-006",
+      "title": "Put a timeout on every network operation",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-006-put-a-timeout-on-every-network-operation",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-007",
+      "title": "Make failed operations resumable by re-running them",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-007-make-failed-operations-resumable-by-re-running-them",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-008",
+      "title": "Design for crash-only operation with atomic writes",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-008-design-for-crash-only-operation-with-atomic-writes",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-009",
+      "title": "Stay safe when many instances run at once",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-009-stay-safe-when-many-instances-run-at-once",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-ROB-010",
+      "title": "Expect to be scripted, run on bad networks, and used in untested environments",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-rob-010-expect-to-be-scripted-run-on-bad-networks-and-used-in-untested-environments",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-SIG-001",
+      "title": "Exit promptly on Ctrl-C and say so immediately",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-sig-001-exit-promptly-on-ctrl-c-and-say-so-immediately",
+      "source": "https://clig.dev/#signals"
+    },
+    {
+      "id": "CLI-SIG-002",
+      "title": "Bound cleanup with a timeout",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-sig-002-bound-cleanup-with-a-timeout",
+      "source": "https://clig.dev/#signals"
+    },
+    {
+      "id": "CLI-SIG-003",
+      "title": "Let a second Ctrl-C skip cleanup and explain what that does",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-sig-003-let-a-second-ctrl-c-skip-cleanup-and-explain-what-that-does",
+      "source": "https://clig.dev/#signals"
+    },
+    {
+      "id": "CLI-SIG-004",
+      "title": "Exit with status 130 after SIGINT",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-sig-004-exit-with-status-130-after-sigint",
+      "source": "original"
+    },
+    {
+      "id": "CLI-SIG-005",
+      "title": "Treat SIGTERM as a request for graceful shutdown",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-sig-005-treat-sigterm-as-a-request-for-graceful-shutdown",
+      "source": "original"
+    },
+    {
+      "id": "CLI-SIG-006",
+      "title": "Exit quietly when the downstream pipe closes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-sig-006-exit-quietly-when-the-downstream-pipe-closes",
+      "source": "original"
+    },
+    {
+      "id": "CLI-SIG-007",
+      "title": "Start correctly when a previous run skipped cleanup",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "ROBUSTNESS.md",
+      "anchor": "ROBUSTNESS.md#cli-sig-007-start-correctly-when-a-previous-run-skipped-cleanup",
+      "source": "https://clig.dev/#signals"
+    },
+    {
+      "id": "CLI-SUB-001",
+      "title": "Use subcommands to tame complex or closely related functionality",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "manual"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-001-use-subcommands-to-tame-complex-or-closely-related-functionality",
+      "source": "https://clig.dev/#subcommands"
+    },
+    {
+      "id": "CLI-SUB-002",
+      "title": "Share global flags, configuration and help machinery across subcommands",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-002-share-global-flags-configuration-and-help-machinery-across-subcommands",
+      "source": "https://clig.dev/#subcommands"
+    },
+    {
+      "id": "CLI-SUB-003",
+      "title": "Use the same flag names for the same concepts in every subcommand",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-003-use-the-same-flag-names-for-the-same-concepts-in-every-subcommand",
+      "source": "https://clig.dev/#subcommands"
+    },
+    {
+      "id": "CLI-SUB-004",
+      "title": "Keep output formatting consistent across subcommands",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-004-keep-output-formatting-consistent-across-subcommands",
+      "source": "https://clig.dev/#subcommands"
+    },
+    {
+      "id": "CLI-SUB-005",
+      "title": "Pick one word order for nested subcommands and apply it everywhere",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-005-pick-one-word-order-for-nested-subcommands-and-apply-it-everywhere",
+      "source": "https://clig.dev/#subcommands"
+    },
+    {
+      "id": "CLI-SUB-006",
+      "title": "Reuse the same verbs across object types",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-006-reuse-the-same-verbs-across-object-types",
+      "source": "https://clig.dev/#subcommands"
+    },
+    {
+      "id": "CLI-SUB-007",
+      "title": "Avoid ambiguous or similarly named subcommands",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-007-avoid-ambiguous-or-similarly-named-subcommands",
+      "source": "https://clig.dev/#subcommands"
+    },
+    {
+      "id": "CLI-SUB-008",
+      "title": "Make help <subcommand> and <subcommand> --help equivalent",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-008-make-help-subcommand-and-subcommand---help-equivalent",
+      "source": "original"
+    },
+    {
+      "id": "CLI-SUB-009",
+      "title": "Reject unknown subcommands with a suggestion",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "SUBCOMMANDS.md",
+      "anchor": "SUBCOMMANDS.md#cli-sub-009-reject-unknown-subcommands-with-a-suggestion",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-001",
+      "title": "Test exit codes for success, usage errors and runtime failures",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-001-test-exit-codes-for-success-usage-errors-and-runtime-failures",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-002",
+      "title": "Snapshot help text and usage errors with golden files",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-002-snapshot-help-text-and-usage-errors-with-golden-files",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-003",
+      "title": "Test output when stdout is not a TTY",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-003-test-output-when-stdout-is-not-a-tty",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-004",
+      "title": "Test that color opt-outs disable color",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-004-test-that-color-opt-outs-disable-color",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-005",
+      "title": "Validate JSON output against a contract",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-005-validate-json-output-against-a-contract",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-006",
+      "title": "Test stdin input and the dash argument",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-006-test-stdin-input-and-the-dash-argument",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-007",
+      "title": "Assert errors go to stderr and stdout stays clean",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-007-assert-errors-go-to-stderr-and-stdout-stays-clean",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-008",
+      "title": "Test that non-interactive runs never prompt or hang",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-008-test-that-non-interactive-runs-never-prompt-or-hang",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-009",
+      "title": "Test interrupt handling and cleanup",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-009-test-interrupt-handling-and-cleanup",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-010",
+      "title": "Test configuration precedence",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-010-test-configuration-precedence",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-011",
+      "title": "Isolate tests from the host environment",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-011-isolate-tests-from-the-host-environment",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-012",
+      "title": "Test the built artifact, not only internal functions",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-012-test-the-built-artifact-not-only-internal-functions",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-013",
+      "title": "Run the suite on every target OS in CI",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-013-run-the-suite-on-every-target-os-in-ci",
+      "source": "original"
+    },
+    {
+      "id": "CLI-TST-014",
+      "title": "Test interactive behavior under a pseudo-terminal",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#cli-tst-014-test-interactive-behavior-under-a-pseudo-terminal",
+      "source": "original"
+    }
+  ]
+}

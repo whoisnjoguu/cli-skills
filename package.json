@@ -1,0 +1,19 @@
+{
+  "name": "cli-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent skills for designing, building, and auditing command-line tools and terminal user interfaces, based on the Command Line Interface Guidelines (clig.dev).",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whoisnjoguu/cli-skills.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build-checklist.cjs",
+    "lint": "node scripts/build-checklist.cjs --check && node scripts/lint-skills.cjs",
+    "test": "node --test test/*.test.cjs"
+  }
+}

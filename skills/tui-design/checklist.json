@@ -1,0 +1,1494 @@
+{
+  "schema_version": 1,
+  "skill": "tui-design",
+  "generated_by": "scripts/build-checklist.cjs",
+  "rule_count": 117,
+  "rules": [
+    {
+      "id": "CLI-ANL-001",
+      "title": "Do not send usage or crash data without consent",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-anl-001-do-not-send-usage-or-crash-data-without-consent",
+      "source": "https://clig.dev/#analytics"
+    },
+    {
+      "id": "CLI-ARG-010",
+      "title": "Never require a prompt",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-arg-010-never-require-a-prompt",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-ARG-018",
+      "title": "Never accept secrets as flag values",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-arg-018-never-accept-secrets-as-flag-values",
+      "source": "https://clig.dev/#arguments-and-flags"
+    },
+    {
+      "id": "CLI-BAS-001",
+      "title": "Parse arguments with an established library",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-bas-001-parse-arguments-with-an-established-library",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-002",
+      "title": "Exit zero on success and non-zero on failure",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-bas-002-exit-zero-on-success-and-non-zero-on-failure",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-003",
+      "title": "Map distinct non-zero exit codes to the important failure modes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-bas-003-map-distinct-non-zero-exit-codes-to-the-important-failure-modes",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-004",
+      "title": "Send primary and machine-readable output to stdout",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-bas-004-send-primary-and-machine-readable-output-to-stdout",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-BAS-005",
+      "title": "Send logs, progress, warnings and errors to stderr",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-bas-005-send-logs-progress-warnings-and-errors-to-stderr",
+      "source": "https://clig.dev/#the-basics"
+    },
+    {
+      "id": "CLI-CFG-004",
+      "title": "Store user config, cache, data, and state in XDG base directories",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-cfg-004-store-user-config-cache-data-and-state-in-xdg-base-directories",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-CFG-008",
+      "title": "Apply configuration sources in a fixed precedence order",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-cfg-008-apply-configuration-sources-in-a-fixed-precedence-order",
+      "source": "https://clig.dev/#configuration"
+    },
+    {
+      "id": "CLI-DST-004",
+      "title": "Provide --version output that includes build information",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-dst-004-provide---version-output-that-includes-build-information",
+      "source": "original"
+    },
+    {
+      "id": "CLI-ENV-005",
+      "title": "Honor standard general-purpose environment variables",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-env-005-honor-standard-general-purpose-environment-variables",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ENV-008",
+      "title": "Do not accept secrets through environment variables",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-env-008-do-not-accept-secrets-through-environment-variables",
+      "source": "https://clig.dev/#environment-variables"
+    },
+    {
+      "id": "CLI-ERR-001",
+      "title": "Catch expected errors and rewrite them for humans",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-err-001-catch-expected-errors-and-rewrite-them-for-humans",
+      "source": "https://clig.dev/#errors"
+    },
+    {
+      "id": "CLI-HLP-001",
+      "title": "Show full help for -h and --help, including on subcommands",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-hlp-001-show-full-help-for--h-and---help-including-on-subcommands",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-003",
+      "title": "Reserve -h for help",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-hlp-003-reserve--h-for-help",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-004",
+      "title": "Offer a help subcommand in git-like tools",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-hlp-004-offer-a-help-subcommand-in-git-like-tools",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-012",
+      "title": "Format help for scanning, without leaking escape codes",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-hlp-012-format-help-for-scanning-without-leaking-escape-codes",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-HLP-015",
+      "title": "Do not hang waiting on an interactive stdin",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-hlp-015-do-not-hang-waiting-on-an-interactive-stdin",
+      "source": "https://clig.dev/#help"
+    },
+    {
+      "id": "CLI-INT-001",
+      "title": "Prompt only when stdin is a TTY",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-int-001-prompt-only-when-stdin-is-a-tty",
+      "source": "https://clig.dev/#interactivity"
+    },
+    {
+      "id": "CLI-OUT-004",
+      "title": "Support --json for structured output",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-out-004-support---json-for-structured-output",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-OUT-014",
+      "title": "Disable color when not on a terminal or when the user asks",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-out-014-disable-color-when-not-on-a-terminal-or-when-the-user-asks",
+      "source": "https://clig.dev/#output"
+    },
+    {
+      "id": "CLI-ROB-002",
+      "title": "Respond within 100 ms",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-rob-002-respond-within-100-ms",
+      "source": "https://clig.dev/#robustness-guidelines"
+    },
+    {
+      "id": "CLI-SIG-004",
+      "title": "Exit with status 130 after SIGINT",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-sig-004-exit-with-status-130-after-sigint",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ACC-001",
+      "title": "Never convey information by color alone",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-001-never-convey-information-by-color-alone",
+      "source": "https://www.w3.org/TR/WCAG22/#use-of-color"
+    },
+    {
+      "id": "TUI-ACC-002",
+      "title": "Make every action keyboard-operable",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-002-make-every-action-keyboard-operable",
+      "source": "https://www.w3.org/TR/WCAG22/#keyboard"
+    },
+    {
+      "id": "TUI-ACC-003",
+      "title": "Keep the focus indicator visible without color",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-003-keep-the-focus-indicator-visible-without-color",
+      "source": "https://www.w3.org/TR/WCAG22/#focus-visible"
+    },
+    {
+      "id": "TUI-ACC-004",
+      "title": "Provide a reduced-motion setting",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-004-provide-a-reduced-motion-setting",
+      "source": "https://www.w3.org/TR/WCAG22/#pause-stop-hide"
+    },
+    {
+      "id": "TUI-ACC-005",
+      "title": "Never flash the screen or content",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-005-never-flash-the-screen-or-content",
+      "source": "https://www.w3.org/TR/WCAG22/#three-flashes-or-below-threshold"
+    },
+    {
+      "id": "TUI-ACC-006",
+      "title": "Keep the terminal cursor at the focused element",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-006-keep-the-terminal-cursor-at-the-focused-element",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ACC-007",
+      "title": "Offer a plain line-oriented or non-interactive mode",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-007-offer-a-plain-line-oriented-or-non-interactive-mode",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ACC-008",
+      "title": "Announce state changes in text",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-008-announce-state-changes-in-text",
+      "source": "https://www.w3.org/TR/WCAG22/#status-messages"
+    },
+    {
+      "id": "TUI-ACC-009",
+      "title": "Avoid needless full-screen redraws",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-009-avoid-needless-full-screen-redraws",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ACC-010",
+      "title": "Lay out in cells and adapt to font size changes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-010-lay-out-in-cells-and-adapt-to-font-size-changes",
+      "source": "https://www.w3.org/TR/WCAG22/#resize-text"
+    },
+    {
+      "id": "TUI-ACC-011",
+      "title": "Do not put essential information only in art or box drawing",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-011-do-not-put-essential-information-only-in-art-or-box-drawing",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ACC-012",
+      "title": "Provide an ASCII fallback for box drawing and symbols",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-012-provide-an-ascii-fallback-for-box-drawing-and-symbols",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ACC-013",
+      "title": "Do not require Nerd Fonts or other patched fonts",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-acc-013-do-not-require-nerd-fonts-or-other-patched-fonts",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-001",
+      "title": "Use one explicit application model and keep it consistent",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-001-use-one-explicit-application-model-and-keep-it-consistent",
+      "source": "https://guide.elm-lang.org/architecture/"
+    },
+    {
+      "id": "TUI-ARC-002",
+      "title": "Keep a single source of truth for application state",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-002-keep-a-single-source-of-truth-for-application-state",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-003",
+      "title": "Render as a pure function of state",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-003-render-as-a-pure-function-of-state",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-004",
+      "title": "Never block the event loop",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-004-never-block-the-event-loop",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-005",
+      "title": "Make in-flight work cancellable and discard stale results",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-005-make-in-flight-work-cancellable-and-discard-stale-results",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-006",
+      "title": "Debounce or throttle rapid events",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-006-debounce-or-throttle-rapid-events",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-007",
+      "title": "Bound memory for logs, streams and large datasets",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-007-bound-memory-for-logs-streams-and-large-datasets",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-008",
+      "title": "Separate domain logic from UI code",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-008-separate-domain-logic-from-ui-code",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-009",
+      "title": "Render the first frame fast and load lazily",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-009-render-the-first-frame-fast-and-load-lazily",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-010",
+      "title": "Surface non-fatal errors inside the UI",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-010-surface-non-fatal-errors-inside-the-ui",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-011",
+      "title": "Restore the terminal before reporting fatal errors",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-011-restore-the-terminal-before-reporting-fatal-errors",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-012",
+      "title": "Log to a file, never to the screen",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-012-log-to-a-file-never-to-the-screen",
+      "source": "original"
+    },
+    {
+      "id": "TUI-ARC-013",
+      "title": "Provide a non-interactive counterpart for essential actions",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "ARCHITECTURE.md",
+      "anchor": "ARCHITECTURE.md#tui-arc-013-provide-a-non-interactive-counterpart-for-essential-actions",
+      "source": "original"
+    },
+    {
+      "id": "TUI-CLR-001",
+      "title": "Detect color depth from the environment and terminfo",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-001-detect-color-depth-from-the-environment-and-terminfo",
+      "source": "original"
+    },
+    {
+      "id": "TUI-CLR-002",
+      "title": "Degrade colors to the detected depth",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-002-degrade-colors-to-the-detected-depth",
+      "source": "original"
+    },
+    {
+      "id": "TUI-CLR-003",
+      "title": "Honor NO_COLOR in the full-screen UI and keep focus visible",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-003-honor-no_color-in-the-full-screen-ui-and-keep-focus-visible",
+      "source": "https://no-color.org"
+    },
+    {
+      "id": "TUI-CLR-004",
+      "title": "Provide an app-level color switch that overrides detection",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-004-provide-an-app-level-color-switch-that-overrides-detection",
+      "source": "original"
+    },
+    {
+      "id": "TUI-CLR-005",
+      "title": "Default to the terminal's ANSI palette and default colors",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-005-default-to-the-terminals-ansi-palette-and-default-colors",
+      "source": "original"
+    },
+    {
+      "id": "TUI-CLR-006",
+      "title": "Support light and dark backgrounds without painting a background",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-006-support-light-and-dark-backgrounds-without-painting-a-background",
+      "source": "original"
+    },
+    {
+      "id": "TUI-CLR-007",
+      "title": "Query the background color only with a timeout and a fallback",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-007-query-the-background-color-only-with-a-timeout-and-a-fallback",
+      "source": "https://invisible-island.net/xterm/ctlseqs/ctlseqs.html"
+    },
+    {
+      "id": "TUI-CLR-008",
+      "title": "Meet WCAG contrast ratios in built-in themes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-008-meet-wcag-contrast-ratios-in-built-in-themes",
+      "source": "https://www.w3.org/TR/WCAG22/#contrast-minimum"
+    },
+    {
+      "id": "TUI-CLR-009",
+      "title": "Use colorblind-safe palettes for status and data",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-009-use-colorblind-safe-palettes-for-status-and-data",
+      "source": "original"
+    },
+    {
+      "id": "TUI-CLR-010",
+      "title": "Let users configure and override themes",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COLOR-AND-ACCESSIBILITY.md",
+      "anchor": "COLOR-AND-ACCESSIBILITY.md#tui-clr-010-let-users-configure-and-override-themes",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-001",
+      "title": "Quit with q and Ctrl-C",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-001-quit-with-q-and-ctrl-c",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-002",
+      "title": "Make Esc back out, never quit unexpectedly",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-002-make-esc-back-out-never-quit-unexpectedly",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-003",
+      "title": "Open a help overlay with ?",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-003-open-a-help-overlay-with-",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-004",
+      "title": "Show context-sensitive key hints at all times",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-004-show-context-sensitive-key-hints-at-all-times",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-005",
+      "title": "Keep arrow keys working and add vim keys alongside",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-005-keep-arrow-keys-working-and-add-vim-keys-alongside",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-006",
+      "title": "Use / to search or filter",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-006-use--to-search-or-filter",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-007",
+      "title": "Cycle focus with Tab and Shift-Tab and activate with Enter",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-007-cycle-focus-with-tab-and-shift-tab-and-activate-with-enter",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-008",
+      "title": "Confirm destructive actions and keep them away from navigation keys",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-008-confirm-destructive-actions-and-keep-them-away-from-navigation-keys",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-009",
+      "title": "Avoid keys reserved by terminals and multiplexers",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-009-avoid-keys-reserved-by-terminals-and-multiplexers",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-010",
+      "title": "Handle legacy key ambiguity and use enhanced keyboard protocols progressively",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-010-handle-legacy-key-ambiguity-and-use-enhanced-keyboard-protocols-progressively",
+      "source": "https://sw.kovidgoyal.net/kitty/keyboard-protocol/"
+    },
+    {
+      "id": "TUI-INP-011",
+      "title": "Make mouse support optional, never required",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-011-make-mouse-support-optional-never-required",
+      "source": "https://invisible-island.net/xterm/ctlseqs/ctlseqs.html"
+    },
+    {
+      "id": "TUI-INP-012",
+      "title": "Enable bracketed paste and treat pasted text as data",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-012-enable-bracketed-paste-and-treat-pasted-text-as-data",
+      "source": "https://invisible-island.net/xterm/ctlseqs/ctlseqs.html"
+    },
+    {
+      "id": "TUI-INP-013",
+      "title": "Let users remap keybindings",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-013-let-users-remap-keybindings",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-014",
+      "title": "Support standard line-editing keys and history in text inputs",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-014-support-standard-line-editing-keys-and-history-in-text-inputs",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-015",
+      "title": "Process all pending input each frame",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-015-process-all-pending-input-each-frame",
+      "source": "original"
+    },
+    {
+      "id": "TUI-INP-016",
+      "title": "Accept Unicode and IME input in text fields",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "INPUT-AND-KEYBINDINGS.md",
+      "anchor": "INPUT-AND-KEYBINDINGS.md#tui-inp-016-accept-unicode-and-ime-input-in-text-fields",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-001",
+      "title": "Use the alternate screen for full-screen apps and restore the primary screen",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-001-use-the-alternate-screen-for-full-screen-apps-and-restore-the-primary-screen",
+      "source": "https://invisible-island.net/xterm/ctlseqs/ctlseqs.html"
+    },
+    {
+      "id": "TUI-LAY-002",
+      "title": "Render inline for short-lived interactions",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-002-render-inline-for-short-lived-interactions",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-003",
+      "title": "Re-layout on terminal resize",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-003-re-layout-on-terminal-resize",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-004",
+      "title": "Show a clear message when the terminal is too small",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-004-show-a-clear-message-when-the-terminal-is-too-small",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-005",
+      "title": "Adapt layout to available space",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-005-adapt-layout-to-available-space",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-006",
+      "title": "Render by diffing frames, not clearing the screen",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-006-render-by-diffing-frames-not-clearing-the-screen",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-007",
+      "title": "Wrap frames in synchronized output where supported",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-007-wrap-frames-in-synchronized-output-where-supported",
+      "source": "https://gist.github.com/christianparpart/d8a62cc1ab659194337d73e399004036"
+    },
+    {
+      "id": "TUI-LAY-008",
+      "title": "Cap the frame rate",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-008-cap-the-frame-rate",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-009",
+      "title": "Measure text by display width, not bytes or code points",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-009-measure-text-by-display-width-not-bytes-or-code-points",
+      "source": "https://www.unicode.org/reports/tr11/"
+    },
+    {
+      "id": "TUI-LAY-010",
+      "title": "Sanitize control characters and escape sequences in displayed data",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-010-sanitize-control-characters-and-escape-sequences-in-displayed-data",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-011",
+      "title": "Handle long content with scrolling and visible position",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-011-handle-long-content-with-scrolling-and-visible-position",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-012",
+      "title": "Keep consistent layout regions across views",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-012-keep-consistent-layout-regions-across-views",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-013",
+      "title": "Make focus and hierarchy visible without relying on color alone",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "manual",
+        "probe"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-013-make-focus-and-hierarchy-visible-without-relying-on-color-alone",
+      "source": "original"
+    },
+    {
+      "id": "TUI-LAY-014",
+      "title": "Design loading, empty and error states for every view",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "LAYOUT-AND-RENDERING.md",
+      "anchor": "LAYOUT-AND-RENDERING.md#tui-lay-014-design-loading-empty-and-error-states-for-every-view",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-001",
+      "title": "Restore the terminal on every exit path",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-001-restore-the-terminal-on-every-exit-path",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-002",
+      "title": "Restore the terminal before printing panic or crash output",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-002-restore-the-terminal-before-printing-panic-or-crash-output",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-003",
+      "title": "Handle SIGINT, SIGTERM and SIGHUP by restoring and exiting",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-003-handle-sigint-sigterm-and-sighup-by-restoring-and-exiting",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-004",
+      "title": "Support suspend and resume with Ctrl-Z",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-004-support-suspend-and-resume-with-ctrl-z",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-005",
+      "title": "Refuse or fall back when stdin or stdout is not a terminal",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-005-refuse-or-fall-back-when-stdin-or-stdout-is-not-a-terminal",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-006",
+      "title": "Handle dumb and unknown terminals",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-006-handle-dumb-and-unknown-terminals",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-007",
+      "title": "Detect capabilities instead of sniffing terminal names",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-007-detect-capabilities-instead-of-sniffing-terminal-names",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-008",
+      "title": "Never block on terminal queries",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-008-never-block-on-terminal-queries",
+      "source": "https://sw.kovidgoyal.net/kitty/keyboard-protocol/#detection-of-support-for-this-protocol"
+    },
+    {
+      "id": "TUI-TRM-009",
+      "title": "Account for tmux and screen",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-009-account-for-tmux-and-screen",
+      "source": "https://github.com/tmux/tmux/wiki/FAQ"
+    },
+    {
+      "id": "TUI-TRM-010",
+      "title": "Minimize bytes per frame for slow and remote links",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-010-minimize-bytes-per-frame-for-slow-and-remote-links",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-011",
+      "title": "Enable VT processing on Windows and degrade on legacy consoles",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-011-enable-vt-processing-on-windows-and-degrade-on-legacy-consoles",
+      "source": "https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences"
+    },
+    {
+      "id": "TUI-TRM-012",
+      "title": "Test across a matrix of terminals before release",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-012-test-across-a-matrix-of-terminals-before-release",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TRM-013",
+      "title": "Treat OSC 8 hyperlinks as optional with a visible fallback",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-013-treat-osc-8-hyperlinks-as-optional-with-a-visible-fallback",
+      "source": "https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda"
+    },
+    {
+      "id": "TUI-TRM-014",
+      "title": "Treat OSC 52 clipboard writes as optional with a fallback",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-014-treat-osc-52-clipboard-writes-as-optional-with-a-fallback",
+      "source": "https://invisible-island.net/xterm/ctlseqs/ctlseqs.html"
+    },
+    {
+      "id": "TUI-TRM-015",
+      "title": "Leave a useful final message on the primary screen",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "TERMINAL-COMPAT.md",
+      "anchor": "TERMINAL-COMPAT.md#tui-trm-015-leave-a-useful-final-message-on-the-primary-screen",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-001",
+      "title": "Unit-test state transitions without a terminal",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-001-unit-test-state-transitions-without-a-terminal",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-002",
+      "title": "Snapshot-test rendered frames with deterministic inputs",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-002-snapshot-test-rendered-frames-with-deterministic-inputs",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-003",
+      "title": "Snapshot at several sizes including the minimum",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-003-snapshot-at-several-sizes-including-the-minimum",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-004",
+      "title": "Test resize handling",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-004-test-resize-handling",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-005",
+      "title": "Test key binding flows end-to-end",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-005-test-key-binding-flows-end-to-end",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-006",
+      "title": "Test terminal restoration after panic and error",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-006-test-terminal-restoration-after-panic-and-error",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-007",
+      "title": "Test signal and suspend paths",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-007-test-signal-and-suspend-paths",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-008",
+      "title": "Test non-TTY and no-color paths",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-008-test-non-tty-and-no-color-paths",
+      "source": "https://no-color.org"
+    },
+    {
+      "id": "TUI-TST-009",
+      "title": "Test color depth and theme variants",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-009-test-color-depth-and-theme-variants",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-010",
+      "title": "Run interactive tests under a real pty in CI",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-010-run-interactive-tests-under-a-real-pty-in-ci",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-011",
+      "title": "Test Unicode and wide-character rendering",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-011-test-unicode-and-wide-character-rendering",
+      "source": "original"
+    },
+    {
+      "id": "TUI-TST-012",
+      "title": "Bound every interactive test with a timeout",
+      "level": "should",
+      "severity": "high",
+      "check": [
+        "static"
+      ],
+      "doc": "TESTING.md",
+      "anchor": "TESTING.md#tui-tst-012-bound-every-interactive-test-with-a-timeout",
+      "source": "original"
+    }
+  ]
+}
