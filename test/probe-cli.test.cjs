@@ -4,7 +4,7 @@ const assert = require("node:assert/strict");
 const path = require("path");
 const { spawnSync } = require("child_process");
 
-const PROBE = path.join(__dirname, "..", "skills", "cli-design", "probe-cli.cjs");
+const PROBE = path.join(__dirname, "..", "skills", "cli-rules", "probe-cli.cjs");
 const { analyzeAnsi, parseArgs, probe } = require(PROBE);
 const fixture = (name) => [process.execPath, path.join(__dirname, "fixtures", name)];
 const outcome = (report, check) => report.checks.filter((c) => c.check === check).map((c) => c.outcome);

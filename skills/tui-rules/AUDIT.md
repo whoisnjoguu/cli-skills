@@ -79,7 +79,7 @@ Write `<output-dir>/findings.json` following [report-schema.json](report-schema.
 ```json
 {
   "schema_version": 1,
-  "skill": "tui-design",
+  "skill": "tui-rules",
   "target": { "name": "mytui", "path": "/abs/path/to/repo", "kind": "tui", "source_ref": "abc1234 (clean)", "language": "Rust", "framework": "ratatui", "entrypoint": "src/main.rs" },
   "mode": "static+probe",
   "generated_at": "2026-01-01T12:00:00Z",

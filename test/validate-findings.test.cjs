@@ -6,14 +6,14 @@ const os = require("os");
 const path = require("path");
 const { spawnSync } = require("child_process");
 
-const SKILL = path.join(__dirname, "..", "skills", "cli-design");
+const SKILL = path.join(__dirname, "..", "skills", "cli-rules");
 const VALIDATOR = path.join(SKILL, "validate-findings.cjs");
 const { validate } = require(VALIDATOR);
 const schema = require(path.join(SKILL, "report-schema.json"));
 
 const checklist = {
   schema_version: 1,
-  skill: "cli-design",
+  skill: "cli-rules",
   rules: [
     { id: "CLI-BAS-002", severity: "high" },
     { id: "CLI-OUT-014", severity: "medium" },
@@ -25,7 +25,7 @@ const checklist = {
 function base(results, extra = {}) {
   return {
     schema_version: 1,
-    skill: "cli-design",
+    skill: "cli-rules",
     target: { name: "demo", path: "/tmp/demo", kind: "cli" },
     mode: "static+probe",
     generated_at: "2026-01-01T12:00:00Z",
@@ -77,7 +77,7 @@ rejects("absolute source paths", (d) => { d.results[0].evidence[0].location = "/
 rejects("probe evidence in static mode", (d) => { d.mode = "static"; }, /requires mode "static\+probe"/);
 rejects("a malformed probe location", (d) => { d.results[1].evidence[0].location = "help_long"; }, /probe:<probe-id>/);
 rejects("missing rules in a full-scope audit", (d) => { d.results.pop(); }, /no result for 1 rule\(s\) in scope: CLI-ROB-006/);
-rejects("a skill mismatch", (d) => { d.skill = "tui-design"; }, /does not match checklist skill/);
+rejects("a skill mismatch", (d) => { d.skill = "tui-rules"; }, /does not match checklist skill/);
 rejects("a bad timestamp", (d) => { d.generated_at = "yesterday"; }, /generated_at/);
 rejects("unexpected top-level properties", (d) => { d.extra = 1; }, /unexpected property "extra"/);
 rejects("results outside the declared scope", (d) => { d.scope = ["CLI-OUT"]; }, /outside the declared scope/);
@@ -125,7 +125,7 @@ test("command line: exit codes and streams", () => {
 });
 
 test("real checklists are accepted by the validator", () => {
-  for (const skill of ["cli-design", "tui-design"]) {
+  for (const skill of ["cli-rules", "tui-rules"]) {
     const dir = path.join(__dirname, "..", "skills", skill);
     const real = require(path.join(dir, "checklist.json"));
     const doc = base(

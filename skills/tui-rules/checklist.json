@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "skill": "tui-design",
+  "skill": "tui-rules",
   "generated_by": "scripts/build-checklist.cjs",
   "rule_count": 117,
   "rules": [

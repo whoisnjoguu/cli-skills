@@ -1,5 +1,5 @@
 ---
-name: tui-design
+name: tui-rules
 description: Design, build, and review terminal user interfaces (full-screen or inline interactive terminal apps built with Bubble Tea, Ratatui, Textual, Ink, tview, prompt libraries, and similar). Use when creating a TUI, adding views, keybindings, layouts, themes, or interactive prompts, choosing a TUI framework, fixing rendering, resize, color, or terminal-restore bugs, or auditing a TUI for usability, accessibility, and terminal compatibility. Run the full audit workflow only when the user explicitly asks for an audit or review report.
 license: CC-BY-SA-4.0 (docs) and MIT (scripts). See LICENSE.txt
 metadata:
@@ -12,7 +12,7 @@ metadata:
 
 Build terminal UIs that feel fast, are learnable on first launch, never wreck the user's terminal, and still behave like good command-line citizens. Every rule has a stable ID, a level, a default severity, and a **Verify** step.
 
-A TUI is a CLI first. Its flags, `--help`, `--version`, exit codes, and non-TTY behavior follow the CLI baseline in [CLI-BASELINE.md](CLI-BASELINE.md), which restates the relevant rules from the companion `cli-design` skill (based on [clig.dev](https://clig.dev)).
+A TUI is a CLI first. Its flags, `--help`, `--version`, exit codes, and non-TTY behavior follow the CLI baseline in [CLI-BASELINE.md](CLI-BASELINE.md), which restates the relevant rules from the companion `cli-rules` skill (based on [clig.dev](https://clig.dev)).
 
 ## Operating modes
 

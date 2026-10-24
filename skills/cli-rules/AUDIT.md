@@ -86,7 +86,7 @@ The parent merges results into `<output-dir>/findings.json`:
 ```json
 {
   "schema_version": 1,
-  "skill": "cli-design",
+  "skill": "cli-rules",
   "target": { "name": "mytool", "path": "/abs/path/to/repo", "kind": "cli", "source_ref": "abc1234 (clean)", "language": "Go", "framework": "cobra", "entrypoint": "cmd/mytool/main.go" },
   "mode": "static+probe",
   "generated_at": "2026-01-01T12:00:00Z",

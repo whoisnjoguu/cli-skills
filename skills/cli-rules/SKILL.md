@@ -1,5 +1,5 @@
 ---
-name: cli-design
+name: cli-rules
 description: Design, build, and review command-line tools using the Command Line Interface Guidelines (clig.dev). Use when creating a new CLI, adding commands, flags, help text, output formats, errors, config, or env vars, choosing a CLI library, or reviewing or auditing an existing CLI for usability, scriptability, and robustness. Run the full audit workflow only when the user explicitly asks for an audit or review report.
 license: CC-BY-SA-4.0 (docs) and MIT (scripts). See LICENSE.txt
 metadata:

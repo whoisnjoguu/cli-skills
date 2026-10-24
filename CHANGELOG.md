@@ -12,13 +12,14 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Changed
 
+- **Breaking:** renamed the skills `cli-design` to `cli-rules` and `tui-design` to `tui-rules`, so they can be installed alongside other skills with the old names. Reinstall with the new names; rule IDs are unchanged.
 - Bubble Tea guidance now covers both the v1 and v2 APIs.
 - `npm test` no longer depends on shell glob expansion.
 
 ### Fixed
 
 - CI now runs on pushes to the default branch.
-- Fixed the CLI baseline link to the `cli-design` skill.
+- Fixed the CLI baseline link to the `cli-rules` skill.
 
 ## 0.1.0
 
