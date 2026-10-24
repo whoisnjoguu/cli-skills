@@ -5,7 +5,7 @@
   "required": ["schema_version", "skill", "target", "mode", "generated_at", "results"],
   "properties": {
     "schema_version": { "const": 1 },
-    "skill": { "enum": ["cli-design", "tui-design"] },
+    "skill": { "enum": ["cli-rules", "tui-rules"] },
     "target": {
       "type": "object",
       "additionalProperties": false,

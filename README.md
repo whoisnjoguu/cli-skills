@@ -10,8 +10,8 @@ The guidelines are written as numbered rules. Each rule has a stable ID, a level
 
 | Skill | Use it for | Rules |
 |---|---|---|
-| [`cli-design`](skills/cli-design/SKILL.md) | Designing, building, or reviewing a CLI: arguments and flags, help text, output and `--json`, errors and exit codes, interactivity, subcommands, config and env vars, signals, robustness, naming, distribution, and testing. | 156 |
-| [`tui-design`](skills/tui-design/SKILL.md) | Full-screen or inline interactive terminal apps (Bubble Tea, Ratatui, Textual, Ink, tview, prompt libraries): architecture, layout and rendering, keybindings, color and accessibility, terminal compatibility and restore, and testing. Includes a 24-rule CLI baseline, because a TUI is a CLI first. | 117 |
+| [`cli-rules`](skills/cli-rules/SKILL.md) | Designing, building, or reviewing a CLI: arguments and flags, help text, output and `--json`, errors and exit codes, interactivity, subcommands, config and env vars, signals, robustness, naming, distribution, and testing. | 156 |
+| [`tui-rules`](skills/tui-rules/SKILL.md) | Full-screen or inline interactive terminal apps (Bubble Tea, Ratatui, Textual, Ink, tview, prompt libraries): architecture, layout and rendering, keybindings, color and accessibility, terminal compatibility and restore, and testing. Includes a 24-rule CLI baseline, because a TUI is a CLI first. | 117 |
 
 Each skill is self-contained, so you can install either one without the other.
 
@@ -37,17 +37,17 @@ With the [`skills`](https://github.com/vercel-labs/skills) CLI:
 npx skills add https://github.com/whoisnjoguu/cli-skills
 
 # Or pick one, globally
-npx skills add https://github.com/whoisnjoguu/cli-skills --skill cli-design --global
-npx skills add https://github.com/whoisnjoguu/cli-skills --skill tui-design --global
+npx skills add https://github.com/whoisnjoguu/cli-skills --skill cli-rules --global
+npx skills add https://github.com/whoisnjoguu/cli-skills --skill tui-rules --global
 ```
 
 Manually, copy a skill directory to wherever your agent loads skills from:
 
 ```bash
 git clone https://github.com/whoisnjoguu/cli-skills
-cp -r cli-skills/skills/cli-design ~/.claude/skills/        # Claude Code
-cp -r cli-skills/skills/cli-design ~/.copilot/skills/       # GitHub Copilot CLI
-cp -r cli-skills/skills/cli-design .agents/skills/          # project-local, other agents
+cp -r cli-skills/skills/cli-rules ~/.claude/skills/        # Claude Code
+cp -r cli-skills/skills/cli-rules ~/.copilot/skills/       # GitHub Copilot CLI
+cp -r cli-skills/skills/cli-rules .agents/skills/          # project-local, other agents
 ```
 
 ## Usage
@@ -55,12 +55,12 @@ cp -r cli-skills/skills/cli-design .agents/skills/          # project-local, oth
 Example prompts:
 
 ```text
-Build a CLI in Go called `notes` that adds, lists, and searches notes. Follow the cli-design skill.
+Build a CLI in Go called `notes` that adds, lists, and searches notes. Follow the cli-rules skill.
 What should `mytool deploy` do when stdin isn't a TTY and it needs confirmation?
 Add a --json flag to the `list` command.
 Make a Ratatui log viewer with a filter box, vim-style keys, and a help overlay.
 Why is my terminal broken after my Textual app crashes?
-Audit this CLI against the cli-design skill and write a report.
+Audit this CLI against the cli-rules skill and write a report.
 Review just output and error handling in this tool (partial audit).
 Audit this TUI for accessibility and terminal compatibility.
 ```
@@ -80,7 +80,7 @@ An audit writes to a new directory outside the target, by default `~/cli-skills-
 
 ```
 skills/
-  cli-design/
+  cli-rules/
     SKILL.md                   entry point: modes, routing table, build workflow
     AUDIT.md                   audit workflow
     PHILOSOPHY.md              clig.dev principles (no rules)
@@ -102,7 +102,7 @@ skills/
     validate-findings.cjs      findings validator
     probe-cli.cjs              safe behavior probe
     LICENSE.txt                bundled license notices
-  tui-design/
+  tui-rules/
     SKILL.md, AUDIT.md
     CLI-BASELINE.md            24 CLI rules every TUI must also meet
     ARCHITECTURE.md            TUI-ARC
@@ -126,11 +126,11 @@ All tools use plain Node.js 18+ with no dependencies, and follow the guidelines 
 
 ```bash
 # Probe a built CLI (isolated HOME/XDG, closed stdin, timeouts, no network proxy)
-node skills/cli-design/probe-cli.cjs -- ./bin/mytool
-node skills/cli-design/probe-cli.cjs --include all --out probe.json -- ./bin/mytool
+node skills/cli-rules/probe-cli.cjs -- ./bin/mytool
+node skills/cli-rules/probe-cli.cjs --include all --out probe.json -- ./bin/mytool
 
 # Validate an audit's findings
-node skills/cli-design/validate-findings.cjs path/to/findings.json
+node skills/cli-rules/validate-findings.cjs path/to/findings.json
 ```
 
 ## Design principles

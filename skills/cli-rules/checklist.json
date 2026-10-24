@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "skill": "cli-design",
+  "skill": "cli-rules",
   "generated_by": "scripts/build-checklist.cjs",
   "rule_count": 156,
   "rules": [

@@ -10,9 +10,9 @@
  *  3. Shared tooling and LICENSE.txt are byte-identical across skills
  *  4. Relative links and #anchors resolve
  *  5. Every rule ID mentioned in a skill exists in that skill's checklist
- *  6. CLI-BASELINE.md rules mirror cli-design rules (title, level, severity)
+ *  6. CLI-BASELINE.md rules mirror cli-rules rules (title, level, severity)
  *  7. probe-cli.cjs rule mappings exist in every checklist
- *  8. Every clig.dev guideline section is cited by at least one cli-design rule
+ *  8. Every clig.dev guideline section is cited by at least one cli-rules rule
  *  9. Every companion markdown file is linked from its SKILL.md
  */
 
@@ -195,26 +195,26 @@ for (const file of mdFiles) {
   }
 }
 
-// 6. CLI baseline mirrors cli-design
-const cli = built.get("cli-design");
-const tui = built.get("tui-design");
+// 6. CLI baseline mirrors cli-rules
+const cli = built.get("cli-rules");
+const tui = built.get("tui-rules");
 if (cli && tui) {
   const cliRules = new Map(cli.checklist.rules.map((r) => [r.id, r]));
   for (const r of tui.checklist.rules.filter((x) => x.id.startsWith("CLI-"))) {
     const src = cliRules.get(r.id);
-    if (!src) err(`tui-design/${r.doc}: ${r.id} does not exist in cli-design`);
+    if (!src) err(`tui-rules/${r.doc}: ${r.id} does not exist in cli-rules`);
     else {
       for (const k of ["title", "level", "severity"]) {
-        if (src[k] !== r[k]) err(`tui-design/${r.doc}: ${r.id} ${k} "${r[k]}" differs from cli-design "${src[k]}"`);
+        if (src[k] !== r[k]) err(`tui-rules/${r.doc}: ${r.id} ${k} "${r[k]}" differs from cli-rules "${src[k]}"`);
       }
     }
-    if (r.doc !== "CLI-BASELINE.md") err(`tui-design/${r.doc}: CLI rules belong in CLI-BASELINE.md`);
+    if (r.doc !== "CLI-BASELINE.md") err(`tui-rules/${r.doc}: CLI rules belong in CLI-BASELINE.md`);
   }
   for (const r of tui.checklist.rules.filter((x) => x.id.startsWith("TUI-"))) {
-    if (r.doc === "CLI-BASELINE.md") err(`tui-design/CLI-BASELINE.md: ${r.id} must live in a TUI companion file`);
+    if (r.doc === "CLI-BASELINE.md") err(`tui-rules/CLI-BASELINE.md: ${r.id} must live in a TUI companion file`);
   }
   for (const r of cli.checklist.rules) {
-    if (!r.id.startsWith("CLI-")) err(`cli-design/${r.doc}: ${r.id} must use the CLI- prefix`);
+    if (!r.id.startsWith("CLI-")) err(`cli-rules/${r.doc}: ${r.id} must use the CLI- prefix`);
   }
 }
 
@@ -233,7 +233,7 @@ for (const dir of skillDirs) {
 if (cli) {
   for (const s of CLIG_SECTIONS) {
     const url = `https://clig.dev/#${s}`;
-    if (!cli.checklist.rules.some((r) => r.source === url)) err(`cli-design: no rule cites ${url}`);
+    if (!cli.checklist.rules.some((r) => r.source === url)) err(`cli-rules: no rule cites ${url}`);
   }
 }
 

@@ -21,7 +21,7 @@ npm run lint && npm test
 CI also runs the official [skills-ref](https://github.com/agentskills/agentskills/tree/main/skills-ref) validator. To run it locally with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uvx --from "git+https://github.com/agentskills/agentskills#subdirectory=skills-ref" skills-ref validate skills/cli-design
+uvx --from "git+https://github.com/agentskills/agentskills#subdirectory=skills-ref" skills-ref validate skills/cli-rules
 ```
 
 ## Writing rules
@@ -68,7 +68,7 @@ Rule IDs appear in published audit reports, so they are permanent:
 
 `probe-cli.cjs`, `validate-findings.cjs`, `report-schema.json`, and `LICENSE.txt` are copied into every skill so that each skill installs on its own. Edit them in one skill, then copy the file to the others; lint fails if the copies differ.
 
-The CLI rules in `skills/tui-design/CLI-BASELINE.md` mirror rules in `cli-design`. If you change the title, level, or severity of a mirrored rule, change both; lint enforces this.
+The CLI rules in `skills/tui-rules/CLI-BASELINE.md` mirror rules in `cli-rules`. If you change the title, level, or severity of a mirrored rule, change both; lint enforces this.
 
 ## Releases
 
