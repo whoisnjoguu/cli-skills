@@ -23,7 +23,22 @@ Comparison of widely used TUI frameworks and prompt libraries by language: rende
 
 ## Go
 
-**Bubble Tea** (`github.com/charmbracelet/bubbletea`; v2 at `charm.land/bubbletea/v2`). Model-Update-View: `Update(msg)` returns a new model plus a command; `View()` renders a string. Pure state transitions make unit testing easy, and commands keep I/O out of `Update`. Runs inline by default with opt-in alternate screen, supports mouse, bracketed paste, focus reporting, and suspend (`tea.Suspend`). Panics in your own goroutines are not recovered; see TUI-TRM-002. Companion libraries: **Bubbles** (list, table, viewport, textinput, spinner, help/keymap), **Lip Gloss** (styles, layout, color-profile detection and downsampling), **Huh** (forms and prompts, with an accessible mode that falls back to plain sequential prompts).
+**Bubble Tea** (v1 `github.com/charmbracelet/bubbletea`; v2 `charm.land/bubbletea/v2`). Model-Update-View: `Update(msg)` returns a new model plus a command, and `View()` renders the frame. Pure state transitions make unit testing easy, and commands keep I/O out of `Update`. Runs inline by default with opt-in alternate screen, supports mouse, bracketed paste, focus reporting, and suspend (`tea.Suspend`).
+
+The major versions differ in ways that matter when reading code or examples:
+
+| Concern | v1 | v2 |
+|---|---|---|
+| `View()` returns | `string` | `tea.View` (content plus terminal state) |
+| Alternate screen | `tea.WithAltScreen()` option or `tea.EnterAltScreen` command | `v.AltScreen = true` in `View()` |
+| Mouse | `tea.WithMouseCellMotion()` | `v.MouseMode = tea.MouseModeCellMotion` |
+| Key presses | `tea.KeyMsg` struct, `msg.Type`, `msg.Runes` | `tea.KeyPressMsg`, `msg.Code`, `msg.Text` (`tea.KeyMsg` is now an interface covering press and release) |
+| Paste | `tea.KeyMsg` with `msg.Paste` set | `tea.PasteMsg` |
+| Test harness | `github.com/charmbracelet/x/exp/teatest` | `github.com/charmbracelet/x/exp/teatest/v2` |
+
+Go examples in this skill use the v1 API unless marked otherwise; `msg.String()` matching (for example `"ctrl+c"`) works in both. When auditing, check `go.mod` for the major version before judging an API call. The official [v2 upgrade guide](https://github.com/charmbracelet/bubbletea/blob/main/UPGRADE_GUIDE_V2.md) lists every change.
+
+Panics in your own goroutines are not recovered; see TUI-TRM-002. Companion libraries: **Bubbles** (list, table, viewport, textinput, spinner, help/keymap), **Lip Gloss** (styles, layout, color-profile detection and downsampling), **Huh** (forms and prompts, with an accessible mode that falls back to plain sequential prompts).
 
 **tview**. Batteries-included retained widgets (tables, trees, forms, flex/grid layouts, modals) built on tcell. Fast to build admin-style UIs; less control over rendering and harder to unit-test than MVU. Tests can inject a `tcell.SimulationScreen` via `Application.SetScreen`.
 

@@ -145,7 +145,7 @@ In traditional terminal encoding several keys send identical bytes: `Ctrl-I` is 
 
 Every mouse action (click to focus, scroll, drag to resize) must have a keyboard equivalent. If you enable mouse reporting (prefer SGR encoding, mode 1006, with 1000/1002), note that it captures clicks and breaks native text selection; provide a key or config option to turn it off and mention that most terminals let `Shift`-drag select anyway. Disable all mouse modes on exit, or the shell receives escape garbage on every click.
 
-**Verify:** Grep for `?1000h`, `?1002h`, `?1003h`, `?1006h`, `EnableMouseCapture`, `WithMouseCellMotion` and confirm matching disables on exit. Complete every task using only the keyboard. After quitting, click in the shell and confirm no characters appear.
+**Verify:** Grep for `?1000h`, `?1002h`, `?1003h`, `?1006h`, `EnableMouseCapture`, `WithMouseCellMotion`, `MouseMode` and confirm matching disables on exit. Complete every task using only the keyboard. After quitting, click in the shell and confirm no characters appear.
 
 ### TUI-INP-012: Enable bracketed paste and treat pasted text as data
 
@@ -156,7 +156,7 @@ Every mouse action (click to focus, scroll, drag to resize) must have a keyboard
 
 Enable bracketed paste (`CSI ? 2004 h`) so pastes arrive wrapped in `CSI 200 ~` ... `CSI 201 ~` as a single paste event. Insert the content into the focused text field; never interpret pasted characters as keybindings, and never let an embedded newline submit a form or run a command. In single-line fields, replace newlines with spaces or ask before submitting multi-line content. Without this, pasting `rm -rf ~\n` into the wrong place, or pasting text containing `q`, `d` and `y`, triggers actions. Disable the mode on exit.
 
-**Verify:** Grep for `2004`, `EnableBracketedPaste`, `tea.PasteMsg`/`msg.Paste`, Textual `on_paste`. Probe: `tmux set-buffer "$(printf 'abc\nqdy')"; tmux paste-buffer -p -t p` (`-p` sends bracketed paste) and confirm the text lands in the input and nothing quits, deletes or submits.
+**Verify:** Grep for `2004`, `EnableBracketedPaste`, `tea.PasteMsg` (v2) or `msg.Paste` (v1), Textual `on_paste`. Probe: `tmux set-buffer "$(printf 'abc\nqdy')"; tmux paste-buffer -p -t p` (`-p` sends bracketed paste) and confirm the text lands in the input and nothing quits, deletes or submits.
 
 ### TUI-INP-013: Let users remap keybindings
 

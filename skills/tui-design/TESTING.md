@@ -189,9 +189,10 @@ A TUI test that waits for output that never comes hangs CI until the job limit. 
 
 #### Go: Bubble Tea teatest
 
-`github.com/charmbracelet/x/exp/teatest` (experimental API) runs a Bubble Tea program against a virtual terminal of a fixed size, lets you send messages and type keys, wait for output, and compare final output against golden files (regenerate with `go test -update`).
+`github.com/charmbracelet/x/exp/teatest` (experimental API; use `teatest/v2` with Bubble Tea v2) runs a Bubble Tea program against a virtual terminal of a fixed size, lets you send messages and type keys, wait for output, and compare final output against golden files (regenerate with `go test -update`).
 
 ```go
+// Bubble Tea v1 API
 tm := teatest.NewTestModel(t, initialModel(), teatest.WithInitialTermSize(80, 24))
 tm.Send(tea.KeyMsg{Type: tea.KeyDown})
 tm.Type("q")

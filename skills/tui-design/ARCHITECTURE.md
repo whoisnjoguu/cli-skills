@@ -28,7 +28,7 @@ Pick one model and apply it consistently. Mixing (for example, widgets that own 
 The loop owns the state. Only `update` mutates it, only `view` reads it to produce a frame, and anything slow runs as a command whose result returns as another message.
 
 ```go
-// Bubble Tea style
+// Bubble Tea v1 API (v2: match tea.KeyPressMsg; see FRAMEWORKS.md)
 type model struct{ items []Item; loading bool; err error }
 type itemsLoaded struct{ items []Item; err error }
 
