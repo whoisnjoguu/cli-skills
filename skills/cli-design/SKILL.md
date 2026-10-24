@@ -1,6 +1,11 @@
 ---
 name: cli-design
 description: Design, build, and review command-line tools using the Command Line Interface Guidelines (clig.dev). Use when creating a new CLI, adding commands, flags, help text, output formats, errors, config, or env vars, choosing a CLI library, or reviewing or auditing an existing CLI for usability, scriptability, and robustness. Run the full audit workflow only when the user explicitly asks for an audit or review report.
+license: CC-BY-SA-4.0 (docs) and MIT (scripts). See LICENSE.txt
+metadata:
+  author: whoisnjoguu
+  version: "0.1.0"
+  repository: https://github.com/whoisnjoguu/cli-skills
 ---
 
 # CLI guidelines
@@ -118,4 +123,4 @@ Use this when creating a CLI or adding significant surface to one.
 
 ## Attribution
 
-Rules marked with a clig.dev source are adapted from the [Command Line Interface Guidelines](https://clig.dev) by Aanand Prasad, Ben Firshman, Carl Tashian, and Eva Parish, licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Rules marked `original` extend that guidance.
+Rules marked with a clig.dev source are adapted from the [Command Line Interface Guidelines](https://clig.dev) by Aanand Prasad, Ben Firshman, Carl Tashian, and Eva Parish, licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Rules marked `original` extend that guidance. This skill's documentation is licensed CC BY-SA 4.0 and its scripts MIT; see [LICENSE.txt](LICENSE.txt).

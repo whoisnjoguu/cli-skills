@@ -2,19 +2,29 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  check:
-    runs-on: ubuntu-latest
+  test:
+    name: test (node ${{ matrix.node }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest]
         node: [18, 20, 22]
+        include:
+          # macOS exercises the BSD `script` PTY path in probe-cli.cjs
+          - os: macos-latest
+            node: 22
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,3 +32,18 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm run lint
       - run: npm test
+
+  skills-ref:
+    name: validate (official skills-ref)
+    runs-on: ubuntu-latest
+    env:
+      # agentskills/agentskills, pinned; bump deliberately
+      SKILLS_REF: git+https://github.com/agentskills/agentskills@f130f348f502d9804278a617f86929846896d2e9#subdirectory=skills-ref
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Validate each skill
+        run: |
+          for dir in skills/*/; do
+            uvx --from "$SKILLS_REF" skills-ref validate "$dir"
+          done

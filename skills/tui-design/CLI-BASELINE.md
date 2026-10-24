@@ -1,6 +1,6 @@
 # CLI baseline for TUIs
 
-A TUI is still a command-line program. Its flags, exit codes, help and non-interactive paths must meet the same baseline as any CLI before the full-screen experience matters. This file restates the [cli-design](https://github.com/whoisnjoguu/cli-skills/tree/main/skills/cli-design) rules that apply to every TUI, keeping their IDs, titles, levels and severities, with TUI-specific guidance. Install the `cli-design` skill for the full catalog.
+A TUI is still a command-line program. Its flags, exit codes, help and non-interactive paths must meet the same baseline as any CLI before the full-screen experience matters. This file restates the [cli-design](https://github.com/whoisnjoguu/cli-skills/tree/HEAD/skills/cli-design) rules that apply to every TUI, keeping their IDs, titles, levels and severities, with TUI-specific guidance. Install the `cli-design` skill for the full catalog.
 
 Adapted from the [Command Line Interface Guidelines](https://clig.dev) (CC BY-SA 4.0).
 

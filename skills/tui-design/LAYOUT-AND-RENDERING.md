@@ -36,7 +36,7 @@ To inspect the raw escape sequences an app emits, record a session with `script 
 
 Full-screen apps should switch to the alternate screen buffer (`CSI ? 1049 h`) on start and back (`CSI ? 1049 l`) on every exit path, so the user's shell history and scrollback are left exactly as they were. Pair it with hiding the cursor and raw mode, and undo all of them together (see TUI-ARC-011 in [ARCHITECTURE.md](ARCHITECTURE.md)). Frameworks expose this as `tea.WithAltScreen()`, `EnterAlternateScreen` in crossterm, or the default in Textual. If the app prints a result for the user to keep (a chosen item, a summary), print it after leaving the alternate screen.
 
-**Verify:** Grep for `1049`, `WithAltScreen`, `EnterAlternateScreen`, `smcup`/`rmcup` and confirm a matching leave on quit, error and signal paths. Probe: run some commands, launch the app, quit with `q`, and confirm the earlier shell output is intact and no frame remnants remain; in a `script` recording count equal numbers of `\e[?1049h` and `\e[?1049l`.
+**Verify:** Grep for `1049`, `WithAltScreen`, `AltScreen = true`, `EnterAlternateScreen`, `smcup`/`rmcup` and confirm a matching leave on quit, error and signal paths. Probe: run some commands, launch the app, quit with `q`, and confirm the earlier shell output is intact and no frame remnants remain; in a `script` recording count equal numbers of `\e[?1049h` and `\e[?1049l`.
 
 ### TUI-LAY-002: Render inline for short-lived interactions
 
