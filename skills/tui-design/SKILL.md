@@ -1,6 +1,11 @@
 ---
 name: tui-design
 description: Design, build, and review terminal user interfaces (full-screen or inline interactive terminal apps built with Bubble Tea, Ratatui, Textual, Ink, tview, prompt libraries, and similar). Use when creating a TUI, adding views, keybindings, layouts, themes, or interactive prompts, choosing a TUI framework, fixing rendering, resize, color, or terminal-restore bugs, or auditing a TUI for usability, accessibility, and terminal compatibility. Run the full audit workflow only when the user explicitly asks for an audit or review report.
+license: CC-BY-SA-4.0 (docs) and MIT (scripts). See LICENSE.txt
+metadata:
+  author: whoisnjoguu
+  version: "0.1.0"
+  repository: https://github.com/whoisnjoguu/cli-skills
 ---
 
 # TUI design
@@ -93,4 +98,4 @@ Machine-readable assets:
 
 ## Attribution
 
-The CLI baseline and rules marked with a clig.dev source are adapted from the [Command Line Interface Guidelines](https://clig.dev) by Aanand Prasad, Ben Firshman, Carl Tashian, and Eva Parish, licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Rules marked `original` are new to this skill.
+The CLI baseline and rules marked with a clig.dev source are adapted from the [Command Line Interface Guidelines](https://clig.dev) by Aanand Prasad, Ben Firshman, Carl Tashian, and Eva Parish, licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Rules marked `original` are new to this skill. This skill's documentation is licensed CC BY-SA 4.0 and its scripts MIT; see [LICENSE.txt](LICENSE.txt).

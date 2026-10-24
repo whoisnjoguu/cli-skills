@@ -4,9 +4,10 @@
 /**
  * Repository consistency checks. Run: node scripts/lint-skills.cjs
  *
- *  1. SKILL.md frontmatter (name matches directory, description present and bounded)
+ *  1. SKILL.md frontmatter (spec fields only; name matches directory; description bounded;
+ *     license references the bundled LICENSE.txt; metadata.version matches package.json)
  *  2. Rule entries parse and every checklist.json is up to date
- *  3. Shared tooling files are byte-identical across skills
+ *  3. Shared tooling and LICENSE.txt are byte-identical across skills
  *  4. Relative links and #anchors resolve
  *  5. Every rule ID mentioned in a skill exists in that skill's checklist
  *  6. CLI-BASELINE.md rules mirror cli-design rules (title, level, severity)
@@ -21,7 +22,7 @@ const { buildSkill, githubSlug } = require("./build-checklist.cjs");
 
 const ROOT = path.resolve(__dirname, "..");
 const SKILLS = path.join(ROOT, "skills");
-const SHARED_FILES = ["report-schema.json", "probe-cli.cjs", "validate-findings.cjs"];
+const SHARED_FILES = ["report-schema.json", "probe-cli.cjs", "validate-findings.cjs", "LICENSE.txt"];
 const CLIG_SECTIONS = [
   "the-basics", "help", "documentation", "output", "errors", "arguments-and-flags", "interactivity",
   "subcommands", "robustness-guidelines", "future-proofing", "signals", "configuration",
@@ -64,12 +65,28 @@ function parseFrontmatter(text) {
   const m = /^---\n([\s\S]*?)\n---\n/.exec(text);
   if (!m) return null;
   const fm = {};
+  let parent = null;
   for (const line of m[1].split("\n")) {
+    const nested = /^ {2}([A-Za-z0-9_-]+):\s*(.*)$/.exec(line);
+    if (nested && parent) {
+      fm[parent][nested[1]] = nested[2].replace(/^["']|["']$/g, "");
+      continue;
+    }
     const kv = /^([a-z_-]+):\s*(.*)$/.exec(line);
-    if (kv) fm[kv[1]] = kv[2].replace(/^["']|["']$/g, "");
+    if (!kv) continue;
+    if (kv[2] === "") {
+      parent = kv[1];
+      fm[parent] = {};
+    } else {
+      parent = null;
+      fm[kv[1]] = kv[2].replace(/^["']|["']$/g, "");
+    }
   }
   return fm;
 }
+
+const ALLOWED_FRONTMATTER = new Set(["name", "description", "license", "compatibility", "metadata", "allowed-tools"]);
+const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, "package.json"), "utf8"));
 
 const skillDirs = fs.readdirSync(SKILLS, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => path.join(SKILLS, d.name));
 const built = new Map();
@@ -87,9 +104,17 @@ for (const dir of skillDirs) {
   if (!fm) err(`${rel(skillMd)}: missing YAML frontmatter`);
   else {
     if (fm.name !== name) err(`${rel(skillMd)}: frontmatter name "${fm.name}" must equal directory name "${name}"`);
-    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(fm.name || "")) err(`${rel(skillMd)}: name must be lowercase kebab-case`);
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(fm.name || "") || fm.name.length > 64) err(`${rel(skillMd)}: name must be lowercase kebab-case, at most 64 characters`);
     if (!fm.description || fm.description.length < 50) err(`${rel(skillMd)}: description is missing or too short`);
     else if (fm.description.length > 1024) err(`${rel(skillMd)}: description exceeds 1024 characters`);
+    for (const k of Object.keys(fm)) if (!ALLOWED_FRONTMATTER.has(k)) err(`${rel(skillMd)}: unknown frontmatter field "${k}"`);
+    if (!fm.license || !fm.license.includes("LICENSE.txt")) err(`${rel(skillMd)}: license must reference the bundled LICENSE.txt`);
+    const meta = fm.metadata;
+    if (!meta || typeof meta !== "object") err(`${rel(skillMd)}: missing metadata mapping`);
+    else {
+      for (const k of ["author", "version"]) if (!meta[k]) err(`${rel(skillMd)}: metadata.${k} is required`);
+      if (meta.version && meta.version !== pkg.version) err(`${rel(skillMd)}: metadata.version "${meta.version}" differs from package.json "${pkg.version}"`);
+    }
   }
 
   // 2. Rules and checklist freshness
@@ -105,7 +130,7 @@ for (const dir of skillDirs) {
   // 9. Companion files linked from SKILL.md
   const skillText = fs.readFileSync(skillMd, "utf8");
   for (const f of fs.readdirSync(dir)) {
-    if (f === "SKILL.md" || !/\.(md|json|cjs)$/.test(f)) continue;
+    if (f === "SKILL.md" || !/\.(md|json|cjs|txt)$/.test(f)) continue;
     if (!skillText.includes(`(${f})`) && !skillText.includes(`(${f}#`)) err(`${rel(skillMd)}: does not link companion file ${f}`);
   }
 }
@@ -123,6 +148,14 @@ if (skillDirs.length > 1) {
     for (const p of copies.slice(1)) {
       if (!first.equals(fs.readFileSync(p))) err(`${rel(p)} differs from ${rel(copies[0])}; shared files must be identical`);
     }
+  }
+}
+
+// 3b. Bundled license carries the repository MIT text verbatim
+for (const dir of skillDirs) {
+  const lic = path.join(dir, "LICENSE.txt");
+  if (fs.existsSync(lic) && !fs.readFileSync(lic, "utf8").endsWith(fs.readFileSync(path.join(ROOT, "LICENSE"), "utf8"))) {
+    err(`${rel(lic)}: must end with the repository LICENSE text`);
   }
 }
 
