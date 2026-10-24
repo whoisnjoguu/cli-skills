@@ -36,6 +36,7 @@ If a request could mean more than one mode, ask one short question before creati
 | Quit/back/help keys, key hints, vim + arrows, focus, reserved keys, bracketed paste, mouse, remapping | [INPUT-AND-KEYBINDINGS.md](INPUT-AND-KEYBINDINGS.md) | TUI-INP |
 | Color depth, `NO_COLOR`, themes, light and dark backgrounds, contrast, color-independence, motion, screen readers, glyph fallbacks | [COLOR-AND-ACCESSIBILITY.md](COLOR-AND-ACCESSIBILITY.md) | TUI-CLR, TUI-ACC |
 | Restoring the terminal, signals, suspend/resume, capability detection, tmux, SSH, Windows, OSC 8/52 | [TERMINAL-COMPAT.md](TERMINAL-COMPAT.md) | TUI-TRM |
+| Case studies (lazygit, k9s, btop, fzf, htop, Helix) and layout patterns (list-detail, dashboard, log viewer, picker, modal) | [EXEMPLARS.md](EXEMPLARS.md) | none |
 | Framework comparison and selection (Go, Rust, Python, Node, C/C++) | [FRAMEWORKS.md](FRAMEWORKS.md) | none |
 | Testing: state, frame snapshots, sizes, key flows, restoration, pty in CI | [TESTING.md](TESTING.md) | TUI-TST |
 | Audit workflow, severity rubric, report template | [AUDIT.md](AUDIT.md) | none |
@@ -61,7 +62,7 @@ Machine-readable assets:
 
 1. **Clarify** the essentials: what the user does in the app (the core loop), inline vs full-screen, target platforms (Windows?), expected data sizes, and whether a non-interactive mode is needed (it almost always is).
 2. **Pick a framework** with [FRAMEWORKS.md](FRAMEWORKS.md), and a model with [ARCHITECTURE.md](ARCHITECTURE.md). Prefer a framework that restores the terminal for you and has a test harness.
-3. **Sketch the screens** before coding: regions (header, body, status bar, key-hint bar), each view's loading, empty, and error states, the minimum size, and the keymap ([INPUT-AND-KEYBINDINGS.md](INPUT-AND-KEYBINDINGS.md#conventional-keymap)). Share the sketch when the design is non-trivial.
+3. **Sketch the screens** before coding, starting from the closest pattern in [EXEMPLARS.md](EXEMPLARS.md#patterns): regions (header, body, status bar, key-hint bar), each view's loading, empty, and error states, the minimum size, and the keymap ([INPUT-AND-KEYBINDINGS.md](INPUT-AND-KEYBINDINGS.md#conventional-keymap)). Share the sketch when the design is non-trivial.
 4. **Implement the CLI shell first**: argument parsing, `--help`, `--version`, a TTY check with fallback, config, and logging to a file ([CLI-BASELINE.md](CLI-BASELINE.md)).
 5. **Implement the UI** to the baseline below.
 6. **Write tests** from [TESTING.md](TESTING.md): state updates, frame snapshots at several sizes including the minimum, key flows, and terminal restoration after a panic.

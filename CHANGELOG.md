@@ -9,6 +9,7 @@ All notable changes to this project are documented here. The format follows [Kee
 - Bundled `LICENSE.txt` in each skill, plus `license` and `metadata` frontmatter.
 - CONTRIBUTING.md and this changelog.
 - CI runs the official skills-ref validator and a macOS job.
+- `tui-rules`: new EXEMPLARS.md with case studies of lazygit, k9s, btop, fzf, htop and Helix, plus list-detail, dashboard, log viewer, inline picker, and modal layout patterns, each mapped to rule IDs.
 
 ### Changed
 

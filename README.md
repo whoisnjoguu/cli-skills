@@ -111,6 +111,7 @@ skills/
     COLOR-AND-ACCESSIBILITY.md TUI-CLR, TUI-ACC
     TERMINAL-COMPAT.md         TUI-TRM
     FRAMEWORKS.md              framework notes (no rules)
+    EXEMPLARS.md               case studies and layout patterns (no rules)
     TESTING.md                 TUI-TST
     checklist.json, report-schema.json, validate-findings.cjs, probe-cli.cjs, LICENSE.txt
 scripts/
