@@ -9,6 +9,7 @@ All notable changes to this project are documented here. The format follows [Kee
 - Bundled `LICENSE.txt` in each skill, plus `license` and `metadata` frontmatter.
 - CONTRIBUTING.md and this changelog.
 - CI runs the official skills-ref validator and a macOS job.
+- Claude Code plugin marketplace (`.claude-plugin/marketplace.json`) with `cli-rules` and `tui-rules` plugins; lint keeps it in sync with the skills.
 
 ### Changed
 

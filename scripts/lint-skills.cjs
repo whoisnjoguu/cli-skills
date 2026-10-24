@@ -14,6 +14,7 @@
  *  7. probe-cli.cjs rule mappings exist in every checklist
  *  8. Every clig.dev guideline section is cited by at least one cli-rules rule
  *  9. Every companion markdown file is linked from its SKILL.md
+ * 10. .claude-plugin/marketplace.json lists every skill once, with matching names and versions
  */
 
 const fs = require("fs");
@@ -234,6 +235,39 @@ if (cli) {
   for (const s of CLIG_SECTIONS) {
     const url = `https://clig.dev/#${s}`;
     if (!cli.checklist.rules.some((r) => r.source === url)) err(`cli-rules: no rule cites ${url}`);
+  }
+}
+
+// 10. Claude Code plugin marketplace
+const marketplacePath = path.join(ROOT, ".claude-plugin", "marketplace.json");
+if (!fs.existsSync(marketplacePath)) err(".claude-plugin/marketplace.json is missing");
+else {
+  let mp = null;
+  try {
+    mp = JSON.parse(fs.readFileSync(marketplacePath, "utf8"));
+  } catch (e) {
+    err(`.claude-plugin/marketplace.json: invalid JSON (${e.message})`);
+  }
+  if (mp) {
+    if (!mp.name || !mp.owner || !mp.owner.name || !Array.isArray(mp.plugins)) err(".claude-plugin/marketplace.json: name, owner.name and plugins are required");
+    if (mp.metadata && mp.metadata.version !== pkg.version) err(`.claude-plugin/marketplace.json: metadata.version "${mp.metadata.version}" differs from package.json "${pkg.version}"`);
+    const listed = new Set();
+    for (const p of mp.plugins || []) {
+      const where = `.claude-plugin/marketplace.json: plugin "${p.name}"`;
+      if (p.version !== pkg.version) err(`${where}: version "${p.version}" differs from package.json "${pkg.version}"`);
+      if (!Array.isArray(p.skills) || p.skills.length !== 1) {
+        err(`${where}: list exactly one skill`);
+        continue;
+      }
+      const skillName = path.basename(p.skills[0]);
+      if (p.skills[0] !== `./skills/${skillName}` || !fs.existsSync(path.join(SKILLS, skillName, "SKILL.md"))) err(`${where}: ${p.skills[0]} is not a skill directory`);
+      if (p.name !== skillName) err(`${where}: name must equal its skill "${skillName}"`);
+      if (listed.has(skillName)) err(`${where}: ${skillName} is listed twice`);
+      listed.add(skillName);
+    }
+    for (const dir of skillDirs) {
+      if (!listed.has(path.basename(dir))) err(`.claude-plugin/marketplace.json: skill ${path.basename(dir)} has no plugin entry`);
+    }
   }
 }
 
