@@ -41,6 +41,16 @@ npx skills add https://github.com/whoisnjoguu/cli-skills --skill cli-rules --glo
 npx skills add https://github.com/whoisnjoguu/cli-skills --skill tui-rules --global
 ```
 
+As a Claude Code plugin:
+
+```bash
+claude plugin marketplace add whoisnjoguu/cli-skills
+claude plugin install cli-rules@cli-skills
+claude plugin install tui-rules@cli-skills
+```
+
+Inside a session, `/plugin marketplace add whoisnjoguu/cli-skills` does the same, and `/plugin` lists both plugins.
+
 Manually, copy a skill directory to wherever your agent loads skills from:
 
 ```bash
@@ -115,6 +125,8 @@ skills/
     EXEMPLARS.md               case studies and layout patterns (no rules)
     TESTING.md                 TUI-TST
     checklist.json, report-schema.json, validate-findings.cjs, probe-cli.cjs, LICENSE.txt
+.claude-plugin/
+  marketplace.json             Claude Code plugin marketplace (one plugin per skill)
 scripts/
   build-checklist.cjs          regenerates checklist.json from the rule headings
   lint-skills.cjs              consistency checks

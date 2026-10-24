@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "cli-skills",
+  "owner": {
+    "name": "whoisnjoguu",
+    "url": "https://github.com/whoisnjoguu"
+  },
+  "metadata": {
+    "description": "Agent skills for designing, building, and auditing command-line tools and terminal user interfaces, with stable rule IDs and audit tooling.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "cli-rules",
+      "source": "./",
+      "skills": ["./skills/cli-rules"],
+      "description": "Design, build, and audit command-line tools with rules based on the Command Line Interface Guidelines (clig.dev).",
+      "version": "0.1.0",
+      "author": { "name": "whoisnjoguu" },
+      "homepage": "https://github.com/whoisnjoguu/cli-skills",
+      "repository": "https://github.com/whoisnjoguu/cli-skills",
+      "license": "CC-BY-SA-4.0 AND MIT",
+      "category": "development",
+      "keywords": ["cli", "command-line", "clig", "terminal", "audit"]
+    },
+    {
+      "name": "tui-rules",
+      "source": "./",
+      "skills": ["./skills/tui-rules"],
+      "description": "Design, build, and audit terminal user interfaces (Bubble Tea, Ratatui, Textual, Ink, and more).",
+      "version": "0.1.0",
+      "author": { "name": "whoisnjoguu" },
+      "homepage": "https://github.com/whoisnjoguu/cli-skills",
+      "repository": "https://github.com/whoisnjoguu/cli-skills",
+      "license": "CC-BY-SA-4.0 AND MIT",
+      "category": "development",
+      "keywords": ["tui", "terminal", "bubbletea", "ratatui", "textual", "audit"]
+    }
+  ]
+}

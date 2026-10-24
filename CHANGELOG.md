@@ -11,6 +11,7 @@ All notable changes to this project are documented here. The format follows [Kee
 - `probe-cli.cjs`: opt-in `json-error` probe that checks usage errors under `--json` (CLI-AGT-001).
 - Bundled `LICENSE.txt` in each skill, plus `license` and `metadata` frontmatter.
 - CONTRIBUTING.md and this changelog.
+- Claude Code plugin marketplace (`.claude-plugin/marketplace.json`) with `cli-rules` and `tui-rules` plugins; lint keeps it in sync with the skills.
 - CI runs the official skills-ref validator and a macOS job.
 - `tui-rules`: new EXEMPLARS.md with case studies of lazygit, k9s, btop, fzf, htop and Helix, plus list-detail, dashboard, log viewer, inline picker, and modal layout patterns, each mapped to rule IDs.
 

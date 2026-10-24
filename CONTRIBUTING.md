@@ -72,7 +72,7 @@ The CLI rules in `skills/tui-rules/CLI-BASELINE.md` mirror rules in `cli-rules`.
 
 ## Releases
 
-1. Update the version in `package.json` and `metadata.version` in every `SKILL.md`; lint checks that they match.
+1. Update the version in `package.json`, `metadata.version` in every `SKILL.md`, and the versions in `.claude-plugin/marketplace.json`; lint checks that they match.
 2. Move the `Unreleased` entries in [CHANGELOG.md](CHANGELOG.md) under the new version.
 3. Tag the release as `vX.Y.Z`.
 
