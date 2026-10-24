@@ -269,3 +269,25 @@ On SIGINT outside the UI's own key handling, restore the terminal and exit 130. 
 No telemetry, crash reports or update pings without consent. Never block the UI on such calls.
 
 **Verify:** Grep for HTTP calls made at startup and check they are gated on an explicit setting.
+
+### CLI-AGT-001: Emit a structured error object on stderr in JSON mode
+
+- **Level:** should
+- **Severity:** medium
+- **Check:** static, probe
+- **Source:** original
+
+When a non-interactive command was run with `--json` and fails, write one JSON error object to stderr (for example `{"error": {"code": "not_found", "message": "..."}}`), keep stdout empty or valid JSON, and exit non-zero. Agents and scripts that drive the TUI's scriptable commands can then branch on the code instead of parsing prose.
+
+**Verify:** Run `mytui --bogus-flag --json; echo $?` and a failing data command with `--json`, and check stderr parses as JSON with an error code while stdout stays clean.
+
+### CLI-AGT-008: Offer a non-interactive way to authenticate
+
+- **Level:** must
+- **Severity:** high
+- **Check:** static, manual
+- **Source:** original
+
+If the app needs credentials, an interactive login screen cannot be the only way in. Provide a token file, `--token-stdin`, a credential helper, or a device-code flow, so the scriptable commands work in CI and under agents. When credentials are missing and stdin is not a terminal, exit promptly with an error naming that option instead of opening the UI or a browser.
+
+**Verify:** With no stored credentials, run a command that needs auth as `mytui <cmd> </dev/null | cat`. It must exit promptly, without drawing a UI, and name the non-interactive login option.

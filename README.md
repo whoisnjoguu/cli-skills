@@ -10,8 +10,8 @@ The guidelines are written as numbered rules. Each rule has a stable ID, a level
 
 | Skill | Use it for | Rules |
 |---|---|---|
-| [`cli-rules`](skills/cli-rules/SKILL.md) | Designing, building, or reviewing a CLI: arguments and flags, help text, output and `--json`, errors and exit codes, interactivity, subcommands, config and env vars, signals, robustness, naming, distribution, and testing. | 156 |
-| [`tui-rules`](skills/tui-rules/SKILL.md) | Full-screen or inline interactive terminal apps (Bubble Tea, Ratatui, Textual, Ink, tview, prompt libraries): architecture, layout and rendering, keybindings, color and accessibility, terminal compatibility and restore, and testing. Includes a 24-rule CLI baseline, because a TUI is a CLI first. | 117 |
+| [`cli-rules`](skills/cli-rules/SKILL.md) | Designing, building, or reviewing a CLI: arguments and flags, help text, output and `--json`, errors and exit codes, interactivity, subcommands, config and env vars, signals, robustness, naming, distribution, testing, and readiness for coding agents and automation. | 166 |
+| [`tui-rules`](skills/tui-rules/SKILL.md) | Full-screen or inline interactive terminal apps (Bubble Tea, Ratatui, Textual, Ink, tview, prompt libraries): architecture, layout and rendering, keybindings, color and accessibility, terminal compatibility and restore, and testing. Includes a 26-rule CLI baseline, because a TUI is a CLI first. | 119 |
 
 Each skill is self-contained, so you can install either one without the other.
 
@@ -96,6 +96,7 @@ skills/
     CONFIGURATION-AND-ENV.md   CLI-CFG, CLI-ENV
     NAMING-AND-DISTRIBUTION.md CLI-NAM, CLI-DST, CLI-ANL
     LANGUAGE-STACKS.md         per-language libraries and idioms (no rules)
+    AGENT-READINESS.md         CLI-AGT  structured errors, dry-run plans, non-interactive auth
     TESTING.md                 CLI-TST
     checklist.json             generated rule index
     report-schema.json         findings contract
@@ -104,7 +105,7 @@ skills/
     LICENSE.txt                bundled license notices
   tui-rules/
     SKILL.md, AUDIT.md
-    CLI-BASELINE.md            24 CLI rules every TUI must also meet
+    CLI-BASELINE.md            26 CLI rules every TUI must also meet
     ARCHITECTURE.md            TUI-ARC
     LAYOUT-AND-RENDERING.md    TUI-LAY
     INPUT-AND-KEYBINDINGS.md   TUI-INP  plus conventional keymap

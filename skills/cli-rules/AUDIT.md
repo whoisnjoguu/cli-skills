@@ -16,7 +16,7 @@ Source review is read-only. Running the target is optional and limited:
 
 1. Never run the target's subcommands, defaults, install scripts, build hooks, or tests unless the user explicitly allows it for this audit.
 2. Probe only with [probe-cli.cjs](probe-cli.cjs), and only after reading the source and confirming that `--help`, `-h`, and `--version` are handled before any side effect (config writes, network calls, migrations, telemetry). Record that confirmation in `inventory.md`.
-3. Add the opt-in probes (`--include unknown-flag,no-args,help-subcommand`) only when the source shows those invocations cannot trigger a default action with side effects.
+3. Add the opt-in probes (`--include unknown-flag,no-args,help-subcommand,json-error`) only when the source shows those invocations cannot trigger a default action with side effects.
 4. Use an existing build of the tool. Build it only when the user allows it, and never install dependencies or fetch from the network to do so.
 5. `probe-cli.cjs` isolates HOME/XDG, closes stdin, points proxy variables at a closed port, and enforces a timeout. It is not an OS sandbox. If the target could still do harm, skip probing and use `mode: "static"`.
 6. Never use real credentials, accounts, or production endpoints. If a rule can only be settled that way, record `needs_validation` with a safe plan for the owner.
@@ -59,7 +59,7 @@ Each derived check in `probe.json` lists the rule IDs it informs. A probe `fail`
 
 ## Phase 3: Review by area
 
-Grade every rule in scope. For large targets, delegate one sub-agent per rule area group (for example BAS+HLP+DOC, OUT+ERR, ARG+INT+SUB, ROB+SIG+FUT, CFG+ENV, NAM+DST+ANL+TST). Give each sub-agent:
+Grade every rule in scope. For large targets, delegate one sub-agent per rule area group (for example BAS+HLP+DOC, OUT+ERR, ARG+INT+SUB, ROB+SIG+FUT, CFG+ENV, NAM+DST+ANL+TST, AGT). Give each sub-agent:
 
 1. its role: grade the assigned rules against the target and return only a JSON array of result objects matching [report-schema.json](report-schema.json);
 2. `inventory.md` verbatim;

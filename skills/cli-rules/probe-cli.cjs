@@ -11,7 +11,7 @@ const os = require("os");
 const path = require("path");
 const { spawn, spawnSync } = require("child_process");
 
-const VERSION = "1.0.0";
+const VERSION = "1.1.0";
 const MAX_CAPTURE = 64 * 1024;
 const HEAD_CHARS = 4000;
 const FAST_HELP_MS = 500;
@@ -27,7 +27,8 @@ arguments such as --help are appended to it, so "-- python app.py" and "-- mytoo
 Options:
   -o, --out <file>      Write the JSON report to <file> and print a summary (default: JSON to stdout)
   -t, --timeout <ms>    Per-invocation timeout in milliseconds (default: 5000)
-  --include <list>      Comma-separated opt-in probes: unknown-flag, no-args, help-subcommand, all.
+  --include <list>      Comma-separated opt-in probes: unknown-flag, no-args, help-subcommand,
+                        json-error, all. json-error runs only when --help mentions --json.
                         Only include these after reading the source and confirming they cannot
                         trigger a default action with side effects.
   --pass-env <NAME>     Copy one variable from the current environment (repeatable),
@@ -67,9 +68,11 @@ const RULE_MAP = {
   unknown_flag_rejected: ["CLI-BAS-002"],
   unknown_flag_error_to_stderr: ["CLI-BAS-005"],
   help_subcommand: ["CLI-HLP-004"],
+  json_error: ["CLI-AGT-001"],
 };
 
 const UNKNOWN_FLAG = "--cli-skills-probe-unknown-flag";
+const OPT_IN = ["unknown-flag", "no-args", "help-subcommand", "json-error"];
 
 function usageError(msg) {
   return Object.assign(new Error(msg), { exitCode: 2 });
@@ -94,9 +97,9 @@ function parseArgs(argv) {
       opts.timeout = v;
     } else if (a === "--include") {
       for (const p of next().split(",").map((s) => s.trim()).filter(Boolean)) {
-        if (p === "all") ["unknown-flag", "no-args", "help-subcommand"].forEach((x) => opts.include.add(x));
-        else if (["unknown-flag", "no-args", "help-subcommand"].includes(p)) opts.include.add(p);
-        else throw usageError(`unknown probe "${p}" for --include (expected unknown-flag, no-args, help-subcommand, all)`);
+        if (p === "all") OPT_IN.forEach((x) => opts.include.add(x));
+        else if (OPT_IN.includes(p)) opts.include.add(p);
+        else throw usageError(`unknown probe "${p}" for --include (expected ${OPT_IN.join(", ")}, all)`);
       }
     } else if (a === "--pass-env") {
       const n = next();
@@ -261,6 +264,14 @@ function planProbes(opts, ptyKind) {
   if (opts.include.has("unknown-flag")) probes.push({ id: "unknown_flag", args: [UNKNOWN_FLAG], purpose: "usage error handling" });
   if (opts.include.has("no-args")) probes.push({ id: "no_args", args: [], purpose: "behavior with no arguments and no TTY" });
   if (opts.include.has("help-subcommand")) probes.push({ id: "help_subcommand", args: ["help"], purpose: "help subcommand" });
+  if (opts.include.has("json-error")) {
+    probes.push({
+      id: "json_error",
+      args: [UNKNOWN_FLAG, "--json"],
+      purpose: "usage error while machine output is requested",
+      when: (done) => done.help_long && /--json\b/.test(done.help_long.stdout_head + done.help_long.stderr_head),
+    });
+  }
   if (opts.tty && ptyKind) {
     probes.push(
       { id: "help_tty", args: ["--help"], tty: true, purpose: "help on a terminal" },
@@ -357,6 +368,28 @@ function deriveChecks(byId, ptyKind, opts) {
         `\`help\` exited ${hs.exit_code} without output matching --help (tool may not use subcommands)`, ["help_subcommand"]);
     }
   }
+  const je = byId.json_error;
+  if (opts.include.has("json-error")) {
+    if (!je) add("json_error", "inconclusive", "--help does not mention --json, so the JSON error probe was skipped", ["help_long"]);
+    else if (ok(je)) {
+      const parses = (s) => {
+        try {
+          const v = JSON.parse(s);
+          return v !== null && typeof v === "object";
+        } catch {
+          return false;
+        }
+      };
+      const out = je.stdout_head.trim();
+      const problems = [];
+      if (je.exit_code === 0) problems.push("exited 0");
+      if (out && !parses(out)) problems.push("stdout is not valid JSON");
+      if (!parses(je.stderr_head.trim())) problems.push("stderr is not a JSON object");
+      add("json_error", problems.length ? "fail" : "pass",
+        problems.length ? `usage error with --json: ${problems.join("; ")}` : `usage error with --json wrote a JSON object to stderr and exited ${je.exit_code}`,
+        ["json_error"]);
+    }
+  }
   return checks;
 }
 
@@ -368,6 +401,7 @@ async function probe(opts) {
   const results = [];
   try {
     for (const p of planProbes(opts, ptyKind)) {
+      if (p.when && !p.when(Object.fromEntries(results.map((r) => [r.id, r])))) continue;
       const argv = [...opts.command, ...p.args];
       const [cmd, args] = p.tty ? wrapForPty(ptyKind, argv) : [argv[0], argv.slice(1)];
       const r = await runOnce({ argv: [cmd, ...args], env: { ...env, ...(p.env || {}) }, cwd, timeout: opts.timeout });
