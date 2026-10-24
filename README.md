@@ -101,6 +101,7 @@ skills/
     report-schema.json         findings contract
     validate-findings.cjs      findings validator
     probe-cli.cjs              safe behavior probe
+    LICENSE.txt                bundled license notices
   tui-design/
     SKILL.md, AUDIT.md
     CLI-BASELINE.md            24 CLI rules every TUI must also meet
@@ -111,10 +112,11 @@ skills/
     TERMINAL-COMPAT.md         TUI-TRM
     FRAMEWORKS.md              framework notes (no rules)
     TESTING.md                 TUI-TST
-    checklist.json, report-schema.json, validate-findings.cjs, probe-cli.cjs
+    checklist.json, report-schema.json, validate-findings.cjs, probe-cli.cjs, LICENSE.txt
 scripts/
   build-checklist.cjs          regenerates checklist.json from the rule headings
   lint-skills.cjs              consistency checks
+  run-tests.cjs                cross-platform test runner
 test/                          node:test suites and probe fixtures
 ```
 
@@ -143,17 +145,11 @@ node skills/cli-design/validate-findings.cjs path/to/findings.json
 
 ```bash
 npm run build   # regenerate checklist.json files after editing rules
-npm run lint    # checklists fresh, links and anchors resolve, rule refs exist, shared files identical
+npm run lint    # checklists fresh, links and anchors resolve, rule refs exist, frontmatter valid
 npm test        # validator, probe, parser, and lint tests
 ```
 
-To add or change a rule:
-
-1. Edit the rule in the relevant `.md` file. Keep its heading in the form `### CLI-AREA-NNN: Title` and keep the Level, Severity, Check and Source bullets and the `**Verify:**` step.
-2. Never renumber or reuse IDs. Retire a rule by marking it deprecated in its body.
-3. Run `npm run build && npm run lint && npm test`.
-
-If you change `probe-cli.cjs`, `validate-findings.cjs`, or `report-schema.json`, change them in both skills.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the rule format, the rule ID stability policy, and the release steps, and [CHANGELOG.md](CHANGELOG.md) for changes.
 
 ## Acknowledgements
 
@@ -163,3 +159,5 @@ Built on the [Command Line Interface Guidelines](https://clig.dev) by Aanand Pra
 
 - Code (`*.cjs`, `*.json`): [MIT](LICENSE).
 - Documentation (`*.md`), adapted from clig.dev: [CC BY-SA 4.0](LICENSE-DOCS).
+
+Each skill bundles both notices in its own `LICENSE.txt`, so a skill installed on its own keeps its license.
