@@ -4,7 +4,7 @@
 // no version flag, accepts unknown flags, and waits for input when run without arguments.
 const args = process.argv.slice(2);
 if (args.includes("-h") || args.includes("--help")) {
-  process.stderr.write("\x1b[31mbad-cli\x1b[0m usage: bad-cli <thing>\n");
+  process.stderr.write("\x1b[31mbad-cli\x1b[0m usage: bad-cli [--json] <thing>\n");
   process.exit(1);
 }
 if (args.length === 0) {

@@ -1,6 +1,6 @@
 ---
 name: cli-rules
-description: Design, build, and review command-line tools using the Command Line Interface Guidelines (clig.dev). Use when creating a new CLI, adding commands, flags, help text, output formats, errors, config, or env vars, choosing a CLI library, or reviewing or auditing an existing CLI for usability, scriptability, and robustness. Run the full audit workflow only when the user explicitly asks for an audit or review report.
+description: Design, build, and review command-line tools using the Command Line Interface Guidelines (clig.dev). Use when creating a new CLI, adding commands, flags, help text, output formats, errors, config, or env vars, choosing a CLI library, making a CLI dependable for coding agents and automation, or reviewing or auditing an existing CLI for usability, scriptability, and robustness. Run the full audit workflow only when the user explicitly asks for an audit or review report.
 license: CC-BY-SA-4.0 (docs) and MIT (scripts). See LICENSE.txt
 metadata:
   author: whoisnjoguu
@@ -46,6 +46,7 @@ This skill is agent-neutral:
 | Config files, XDG, precedence, environment variables, `.env`, secrets | [CONFIGURATION-AND-ENV.md](CONFIGURATION-AND-ENV.md) | CLI-CFG, CLI-ENV |
 | Naming, packaging, completions, telemetry consent | [NAMING-AND-DISTRIBUTION.md](NAMING-AND-DISTRIBUTION.md) | CLI-NAM, CLI-DST, CLI-ANL |
 | Libraries and skeletons for Go, Rust, Python, TypeScript/Node | [LANGUAGE-STACKS.md](LANGUAGE-STACKS.md) | none |
+| Agents and automation as callers: structured errors, retry hints, dry-run plans, idempotency, bounded output, non-interactive auth | [AGENT-READINESS.md](AGENT-READINESS.md) | CLI-AGT |
 | Testing exit codes, golden help, TTY vs pipe, JSON contracts, signals | [TESTING.md](TESTING.md) | CLI-TST |
 | Audit workflow, severity rubric, report template | [AUDIT.md](AUDIT.md) | none |
 
@@ -78,6 +79,7 @@ Use this when creating a CLI or adding significant surface to one.
 2. **Pick the stack** with [LANGUAGE-STACKS.md](LANGUAGE-STACKS.md). Always use an argument-parsing library ([CLI-BAS-001](THE-BASICS.md#cli-bas-001-parse-arguments-with-an-established-library)).
 3. **Design the interface before writing code.** Draft the top-level `--help` text first: command tree ([SUBCOMMANDS.md](SUBCOMMANDS.md)), flags with standard names ([ARGUMENTS-AND-FLAGS.md](ARGUMENTS-AND-FLAGS.md#standard-flag-names)), examples, output formats, the exit-code table, config files, and environment variables ([CONFIGURATION-AND-ENV.md](CONFIGURATION-AND-ENV.md)). Show it to the user when the design is non-trivial.
 4. **Implement the baseline.** Every new CLI must satisfy the must-level rules below from the first commit, not as a later polish pass.
+   If agents, CI, or other programs will drive the tool, apply [AGENT-READINESS.md](AGENT-READINESS.md) too.
 5. **Write tests** from [TESTING.md](TESTING.md): exit codes, golden help, piped (non-TTY) output, `NO_COLOR`, `--json` contract, errors on stderr, and no hang without a TTY.
 6. **Self-check.** Build the tool, then run `node <skill-dir>/probe-cli.cjs -- <tool>` and fix every `fail`. Walk the must-level rules in [checklist.json](checklist.json) for the touched areas and state any you deliberately deviated from and why.
 
@@ -100,6 +102,7 @@ Use this when creating a CLI or adding significant surface to one.
 | Config | Precedence: flags > env > project > user > system. Use XDG paths. | [CLI-CFG-008](CONFIGURATION-AND-ENV.md#cli-cfg-008-apply-configuration-sources-in-a-fixed-precedence-order), [CLI-CFG-004](CONFIGURATION-AND-ENV.md#cli-cfg-004-store-user-config-cache-data-and-state-in-xdg-base-directories) |
 | Signals | Ctrl-C exits promptly with bounded cleanup. Exit 130 on SIGINT. Quiet exit on a broken pipe. | [CLI-SIG-001](ROBUSTNESS.md#cli-sig-001-exit-promptly-on-ctrl-c-and-say-so-immediately), [CLI-SIG-004](ROBUSTNESS.md#cli-sig-004-exit-with-status-130-after-sigint), [CLI-SIG-006](ROBUSTNESS.md#cli-sig-006-exit-quietly-when-the-downstream-pipe-closes) |
 | Network | Timeouts on every call. Validate input before doing work. | [CLI-ROB-006](ROBUSTNESS.md#cli-rob-006-put-a-timeout-on-every-network-operation), [CLI-ROB-001](ROBUSTNESS.md#cli-rob-001-validate-input-before-doing-any-work) |
+| Automation | Non-interactive login. Under `--json`, errors are a JSON object on stderr. | [CLI-AGT-008](AGENT-READINESS.md#cli-agt-008-offer-a-non-interactive-way-to-authenticate), [CLI-AGT-001](AGENT-READINESS.md#cli-agt-001-emit-a-structured-error-object-on-stderr-in-json-mode) |
 | Telemetry | None without consent. | [CLI-ANL-001](NAMING-AND-DISTRIBUTION.md#cli-anl-001-do-not-send-usage-or-crash-data-without-consent) |
 
 ## Guidance-mode answers

@@ -24,7 +24,7 @@ test("parseArgs validates options", () => {
   assert.throws(() => parseArgs(["--include", "rm-rf", "--", "x"]), /unknown probe/);
   assert.throws(() => parseArgs(["--pass-env", "A=B", "--", "x"]), /invalid environment/);
   const o = parseArgs(["--include", "all", "--no-tty", "--", "tool", "sub"]);
-  assert.deepEqual([...o.include].sort(), ["help-subcommand", "no-args", "unknown-flag"]);
+  assert.deepEqual([...o.include].sort(), ["help-subcommand", "json-error", "no-args", "unknown-flag"]);
   assert.equal(o.tty, false);
   assert.deepEqual(o.command, ["tool", "sub"]);
 });
@@ -33,7 +33,7 @@ test("a well-behaved CLI passes every check", async () => {
   const report = await probe({ ...parseArgs(["--include", "all", "--", ...fixture("good-cli.cjs")]) });
   const failing = report.checks.filter((c) => c.outcome === "fail");
   assert.deepEqual(failing, []);
-  for (const c of ["help_flag", "help_short_flag", "help_to_stdout", "version_flag", "no_ansi_when_piped", "unknown_flag_rejected", "unknown_flag_error_to_stderr", "help_subcommand", "no_hang_without_tty"]) {
+  for (const c of ["help_flag", "help_short_flag", "help_to_stdout", "version_flag", "no_ansi_when_piped", "unknown_flag_rejected", "unknown_flag_error_to_stderr", "help_subcommand", "no_hang_without_tty", "json_error"]) {
     assert.deepEqual(outcome(report, c), ["pass"], c);
   }
   for (const c of report.checks) assert.ok(c.rules.length > 0, c.check);
@@ -41,7 +41,7 @@ test("a well-behaved CLI passes every check", async () => {
 
 test("a badly behaved CLI fails the expected checks", async () => {
   const report = await probe({ ...parseArgs(["--include", "all", "--timeout", "1500", "--", ...fixture("bad-cli.cjs")]) });
-  for (const c of ["help_flag", "help_short_flag", "help_to_stdout", "version_flag", "no_ansi_when_piped", "no_color_env", "no_hang_without_tty", "unknown_flag_rejected", "unknown_flag_error_to_stderr"]) {
+  for (const c of ["help_flag", "help_short_flag", "help_to_stdout", "version_flag", "no_ansi_when_piped", "no_color_env", "no_hang_without_tty", "unknown_flag_rejected", "unknown_flag_error_to_stderr", "json_error"]) {
     assert.deepEqual(outcome(report, c), ["fail"], c);
   }
   assert.equal(report.probes.find((p) => p.id === "no_args").timed_out, true);
@@ -68,4 +68,10 @@ test("command line: help, usage errors, report to file", () => {
   r = node("--no-tty", "--", ...fixture("good-cli.cjs"));
   assert.equal(r.status, 0, r.stderr);
   assert.equal(JSON.parse(r.stdout).probe_version, 1);
+});
+
+test("the JSON error probe is skipped when help does not mention --json", async () => {
+  const report = await probe({ ...parseArgs(["--no-tty", "--include", "json-error", "--", process.execPath, "-e", "if (process.argv.includes('--help')) console.log('usage: plain'); else process.exit(2)"]) });
+  assert.equal(report.probes.some((p) => p.id === "json_error"), false);
+  assert.deepEqual(outcome(report, "json_error"), ["inconclusive"]);
 });

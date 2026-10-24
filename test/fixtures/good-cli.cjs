@@ -24,6 +24,10 @@ if (args.includes("--version")) {
 }
 const unknown = args.find((a) => a.startsWith("-") && a !== "--json");
 if (unknown) {
+  if (args.includes("--json")) {
+    process.stderr.write(JSON.stringify({ error: { code: "usage", message: `unknown option ${unknown}` } }) + "\n");
+    process.exit(2);
+  }
   process.stderr.write(`error: unknown option ${unknown}\nRun 'good-cli --help' for usage.\n`);
   process.exit(2);
 }

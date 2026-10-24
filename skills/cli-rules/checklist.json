@@ -2,8 +2,138 @@
   "schema_version": 1,
   "skill": "cli-rules",
   "generated_by": "scripts/build-checklist.cjs",
-  "rule_count": 156,
+  "rule_count": 166,
   "rules": [
+    {
+      "id": "CLI-AGT-001",
+      "title": "Emit a structured error object on stderr in JSON mode",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-001-emit-a-structured-error-object-on-stderr-in-json-mode",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-002",
+      "title": "Give every error a stable machine-readable code",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-002-give-every-error-a-stable-machine-readable-code",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-003",
+      "title": "Say whether a failure is safe to retry",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-003-say-whether-a-failure-is-safe-to-retry",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-004",
+      "title": "Make --dry-run report the exact planned changes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-004-make---dry-run-report-the-exact-planned-changes",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-005",
+      "title": "Make repeated create and apply operations converge",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-005-make-repeated-create-and-apply-operations-converge",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-006",
+      "title": "Return identifiers for everything a command creates or changes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-006-return-identifiers-for-everything-a-command-creates-or-changes",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-007",
+      "title": "Bound list output by default and say when it is truncated",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-007-bound-list-output-by-default-and-say-when-it-is-truncated",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-008",
+      "title": "Offer a non-interactive way to authenticate",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-008-offer-a-non-interactive-way-to-authenticate",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-009",
+      "title": "Expose the command tree in a machine-readable form",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-009-expose-the-command-tree-in-a-machine-readable-form",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-010",
+      "title": "Keep machine output deterministic",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "AGENT-READINESS.md",
+      "anchor": "AGENT-READINESS.md#cli-agt-010-keep-machine-output-deterministic",
+      "source": "original"
+    },
     {
       "id": "CLI-ANL-001",
       "title": "Do not send usage or crash data without consent",

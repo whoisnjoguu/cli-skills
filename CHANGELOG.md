@@ -6,6 +6,9 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Added
 
+- `cli-rules`: new AGENT-READINESS.md with 10 rules (CLI-AGT-001 to CLI-AGT-010) for CLIs driven by coding agents and automation: structured JSON errors, stable error codes, retry hints, dry-run plans, idempotent mutations, returned identifiers, bounded list output, non-interactive authentication, a machine-readable command tree, and deterministic output.
+- `tui-rules`: CLI-AGT-001 and CLI-AGT-008 added to the CLI baseline.
+- `probe-cli.cjs`: opt-in `json-error` probe that checks usage errors under `--json` (CLI-AGT-001).
 - Bundled `LICENSE.txt` in each skill, plus `license` and `metadata` frontmatter.
 - CONTRIBUTING.md and this changelog.
 - CI runs the official skills-ref validator and a macOS job.

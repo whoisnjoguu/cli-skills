@@ -2,8 +2,34 @@
   "schema_version": 1,
   "skill": "tui-rules",
   "generated_by": "scripts/build-checklist.cjs",
-  "rule_count": 117,
+  "rule_count": 119,
   "rules": [
+    {
+      "id": "CLI-AGT-001",
+      "title": "Emit a structured error object on stderr in JSON mode",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-agt-001-emit-a-structured-error-object-on-stderr-in-json-mode",
+      "source": "original"
+    },
+    {
+      "id": "CLI-AGT-008",
+      "title": "Offer a non-interactive way to authenticate",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "CLI-BASELINE.md",
+      "anchor": "CLI-BASELINE.md#cli-agt-008-offer-a-non-interactive-way-to-authenticate",
+      "source": "original"
+    },
     {
       "id": "CLI-ANL-001",
       "title": "Do not send usage or crash data without consent",
