@@ -14,6 +14,6 @@
   "scripts": {
     "build": "node scripts/build-checklist.cjs",
     "lint": "node scripts/build-checklist.cjs --check && node scripts/lint-skills.cjs",
-    "test": "node --test test/*.test.cjs"
+    "test": "node scripts/run-tests.cjs"
   }
 }
