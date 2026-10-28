@@ -25,8 +25,8 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const SKILLS_DIR = path.join(ROOT, "skills");
 
-const RULE_HEADING = /^### ((?:CLI|TUI)-[A-Z0-9]{2,5}-\d{3}): (.+?)\s*$/;
-const ANY_RULE_LIKE_HEADING = /^#{1,6} +(?:CLI|TUI)-[A-Z0-9]+-\d+/;
+const RULE_HEADING = /^### ((?:CLI|TUI|GIT)-[A-Z0-9]{2,5}-\d{3}): (.+?)\s*$/;
+const ANY_RULE_LIKE_HEADING = /^#{1,6} +(?:CLI|TUI|GIT)-[A-Z0-9]+-\d+/;
 const LEVELS = ["must", "should", "consider"];
 const SEVERITIES = ["high", "medium", "low", "info"];
 const CHECKS = ["static", "probe", "manual"];
