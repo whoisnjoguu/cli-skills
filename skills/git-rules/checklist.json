@@ -1,0 +1,853 @@
+{
+  "schema_version": 1,
+  "skill": "git-rules",
+  "generated_by": "scripts/build-checklist.cjs",
+  "rule_count": 69,
+  "rules": [
+    {
+      "id": "GIT-BRN-001",
+      "title": "Create a topic branch for every change",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-001-create-a-topic-branch-for-every-change",
+      "source": "https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows"
+    },
+    {
+      "id": "GIT-BRN-002",
+      "title": "Use lowercase kebab-case names",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-002-use-lowercase-kebab-case-names",
+      "source": "original"
+    },
+    {
+      "id": "GIT-BRN-003",
+      "title": "Match the repository's prefix convention",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-003-match-the-repositorys-prefix-convention",
+      "source": "original"
+    },
+    {
+      "id": "GIT-BRN-004",
+      "title": "Describe the change, not the author, tool, or date",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-004-describe-the-change-not-the-author-tool-or-date",
+      "source": "original"
+    },
+    {
+      "id": "GIT-BRN-005",
+      "title": "Keep names short and specific",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-005-keep-names-short-and-specific",
+      "source": "original"
+    },
+    {
+      "id": "GIT-BRN-006",
+      "title": "Reference the issue or ticket when work is tracker-driven",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "static"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-006-reference-the-issue-or-ticket-when-work-is-tracker-driven",
+      "source": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-a-branch-for-an-issue"
+    },
+    {
+      "id": "GIT-BRN-007",
+      "title": "Use only characters that every shell and host accepts",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-007-use-only-characters-that-every-shell-and-host-accepts",
+      "source": "https://git-scm.com/docs/git-check-ref-format"
+    },
+    {
+      "id": "GIT-BRN-008",
+      "title": "Keep one unit of work per branch",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-008-keep-one-unit-of-work-per-branch",
+      "source": "https://google.github.io/eng-practices/review/developer/small-cls.html"
+    },
+    {
+      "id": "GIT-BRN-009",
+      "title": "Delete topic branches after they merge",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "probe"
+      ],
+      "doc": "BRANCHES.md",
+      "anchor": "BRANCHES.md#git-brn-009-delete-topic-branches-after-they-merge",
+      "source": "original"
+    },
+    {
+      "id": "GIT-CMT-001",
+      "title": "Make each commit one logical change",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-001-make-each-commit-one-logical-change",
+      "source": "https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project"
+    },
+    {
+      "id": "GIT-CMT-002",
+      "title": "Leave the tree building and tests passing at every commit",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-002-leave-the-tree-building-and-tests-passing-at-every-commit",
+      "source": "original"
+    },
+    {
+      "id": "GIT-CMT-003",
+      "title": "Separate refactoring and formatting from behavior changes",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-003-separate-refactoring-and-formatting-from-behavior-changes",
+      "source": "original"
+    },
+    {
+      "id": "GIT-CMT-004",
+      "title": "Commit generated files with the change that regenerates them",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-004-commit-generated-files-with-the-change-that-regenerates-them",
+      "source": "original"
+    },
+    {
+      "id": "GIT-CMT-005",
+      "title": "Stage deliberately and review the staged diff before committing",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-005-stage-deliberately-and-review-the-staged-diff-before-committing",
+      "source": "original"
+    },
+    {
+      "id": "GIT-CMT-006",
+      "title": "Never commit secrets, credentials, or personal configuration",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-006-never-commit-secrets-credentials-or-personal-configuration",
+      "source": "https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning"
+    },
+    {
+      "id": "GIT-CMT-007",
+      "title": "Keep build artifacts and dependencies out of commits",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-007-keep-build-artifacts-and-dependencies-out-of-commits",
+      "source": "original"
+    },
+    {
+      "id": "GIT-CMT-008",
+      "title": "Leave unrelated problems for a separate change",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-008-leave-unrelated-problems-for-a-separate-change",
+      "source": "https://google.github.io/eng-practices/review/developer/small-cls.html"
+    },
+    {
+      "id": "GIT-CMT-009",
+      "title": "Keep commits small enough to review in one sitting",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-009-keep-commits-small-enough-to-review-in-one-sitting",
+      "source": "https://google.github.io/eng-practices/review/developer/small-cls.html"
+    },
+    {
+      "id": "GIT-CMT-010",
+      "title": "Squash fix-up and work-in-progress commits before publishing",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-010-squash-fix-up-and-work-in-progress-commits-before-publishing",
+      "source": "https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History"
+    },
+    {
+      "id": "GIT-CMT-011",
+      "title": "Keep renames detectable",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-011-keep-renames-detectable",
+      "source": "original"
+    },
+    {
+      "id": "GIT-CMT-012",
+      "title": "Respect the project's whitespace, line ending, and encoding settings",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMITS.md",
+      "anchor": "COMMITS.md#git-cmt-012-respect-the-projects-whitespace-line-ending-and-encoding-settings",
+      "source": "original"
+    },
+    {
+      "id": "GIT-HST-001",
+      "title": "Never rewrite history that has been pushed to a shared branch",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-001-never-rewrite-history-that-has-been-pushed-to-a-shared-branch",
+      "source": "https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_peril"
+    },
+    {
+      "id": "GIT-HST-002",
+      "title": "Force-push only your own topic branch, and only with a lease",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe",
+        "manual"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-002-force-push-only-your-own-topic-branch-and-only-with-a-lease",
+      "source": "https://git-scm.com/docs/git-push#Documentation/git-push.txt---force-with-leaseltrefnamegt"
+    },
+    {
+      "id": "GIT-HST-003",
+      "title": "Do not amend, reword, or squash someone else's commits",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-003-do-not-amend-reword-or-squash-someone-elses-commits",
+      "source": "original"
+    },
+    {
+      "id": "GIT-HST-004",
+      "title": "Confirm before discarding any uncommitted or unpushed work",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-004-confirm-before-discarding-any-uncommitted-or-unpushed-work",
+      "source": "original"
+    },
+    {
+      "id": "GIT-HST-005",
+      "title": "Never commit conflict markers or half-resolved merges",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-005-never-commit-conflict-markers-or-half-resolved-merges",
+      "source": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts"
+    },
+    {
+      "id": "GIT-HST-006",
+      "title": "Leave remote and repository configuration alone",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-006-leave-remote-and-repository-configuration-alone",
+      "source": "original"
+    },
+    {
+      "id": "GIT-HST-007",
+      "title": "Treat a committed secret as compromised",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-007-treat-a-committed-secret-as-compromised",
+      "source": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+    },
+    {
+      "id": "GIT-HST-008",
+      "title": "Sign commits when the repository requires it, with the user's key",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-008-sign-commits-when-the-repository-requires-it-with-the-users-key",
+      "source": "https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification"
+    },
+    {
+      "id": "GIT-HST-009",
+      "title": "Use annotated tags for releases and never move a published tag",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "HISTORY-AND-SAFETY.md",
+      "anchor": "HISTORY-AND-SAFETY.md#git-hst-009-use-annotated-tags-for-releases-and-never-move-a-published-tag",
+      "source": "https://git-scm.com/book/en/v2/Git-Basics-Tagging"
+    },
+    {
+      "id": "GIT-MSG-001",
+      "title": "Separate the subject from the body with a blank line",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-001-separate-the-subject-from-the-body-with-a-blank-line",
+      "source": "https://cbea.ms/git-commit/#separate"
+    },
+    {
+      "id": "GIT-MSG-002",
+      "title": "Keep the subject at 50 characters, never more than 72",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-002-keep-the-subject-at-50-characters-never-more-than-72",
+      "source": "https://cbea.ms/git-commit/#limit-50"
+    },
+    {
+      "id": "GIT-MSG-003",
+      "title": "Capitalize the subject and omit the trailing period",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-003-capitalize-the-subject-and-omit-the-trailing-period",
+      "source": "https://cbea.ms/git-commit/#capitalize"
+    },
+    {
+      "id": "GIT-MSG-004",
+      "title": "Write the subject in the imperative mood",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-004-write-the-subject-in-the-imperative-mood",
+      "source": "https://cbea.ms/git-commit/#imperative"
+    },
+    {
+      "id": "GIT-MSG-005",
+      "title": "Wrap the body at 72 columns",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-005-wrap-the-body-at-72-columns",
+      "source": "https://cbea.ms/git-commit/#wrap-72"
+    },
+    {
+      "id": "GIT-MSG-006",
+      "title": "Explain what changed and why, not how",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-006-explain-what-changed-and-why-not-how",
+      "source": "https://cbea.ms/git-commit/#why-not-how"
+    },
+    {
+      "id": "GIT-MSG-007",
+      "title": "Make the subject meaningful on its own",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-007-make-the-subject-meaningful-on-its-own",
+      "source": "original"
+    },
+    {
+      "id": "GIT-MSG-008",
+      "title": "Use Conventional Commits only when the repository does",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-008-use-conventional-commits-only-when-the-repository-does",
+      "source": "https://www.conventionalcommits.org/en/v1.0.0/"
+    },
+    {
+      "id": "GIT-MSG-009",
+      "title": "Reference issues and pull requests in the footer",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-009-reference-issues-and-pull-requests-in-the-footer",
+      "source": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue"
+    },
+    {
+      "id": "GIT-MSG-010",
+      "title": "Use git trailers for structured metadata",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-010-use-git-trailers-for-structured-metadata",
+      "source": "https://git-scm.com/docs/git-interpret-trailers"
+    },
+    {
+      "id": "GIT-MSG-011",
+      "title": "Never attribute the commit to an AI agent or tool",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-011-never-attribute-the-commit-to-an-ai-agent-or-tool",
+      "source": "original"
+    },
+    {
+      "id": "GIT-MSG-012",
+      "title": "Add a Signed-off-by trailer only when the project requires it",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-012-add-a-signed-off-by-trailer-only-when-the-project-requires-it",
+      "source": "https://developercertificate.org/"
+    },
+    {
+      "id": "GIT-MSG-013",
+      "title": "Match the repository's language and style",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-013-match-the-repositorys-language-and-style",
+      "source": "original"
+    },
+    {
+      "id": "GIT-MSG-014",
+      "title": "Do not paste diffs, file lists, or tool output into the message",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-014-do-not-paste-diffs-file-lists-or-tool-output-into-the-message",
+      "source": "original"
+    },
+    {
+      "id": "GIT-MSG-015",
+      "title": "Flag breaking changes explicitly",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-015-flag-breaking-changes-explicitly",
+      "source": "https://www.conventionalcommits.org/en/v1.0.0/#specification"
+    },
+    {
+      "id": "GIT-MSG-016",
+      "title": "Compose multi-line messages with an editor, heredoc, or file",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "manual"
+      ],
+      "doc": "COMMIT-MESSAGES.md",
+      "anchor": "COMMIT-MESSAGES.md#git-msg-016-compose-multi-line-messages-with-an-editor-heredoc-or-file",
+      "source": "original"
+    },
+    {
+      "id": "GIT-PR-001",
+      "title": "Push the branch with an upstream and target the correct base",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-001-push-the-branch-with-an-upstream-and-target-the-correct-base",
+      "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"
+    },
+    {
+      "id": "GIT-PR-002",
+      "title": "Keep each pull request small and single-purpose",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-002-keep-each-pull-request-small-and-single-purpose",
+      "source": "https://google.github.io/eng-practices/review/developer/small-cls.html"
+    },
+    {
+      "id": "GIT-PR-003",
+      "title": "Write the title like a commit subject",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-003-write-the-title-like-a-commit-subject",
+      "source": "https://cbea.ms/git-commit/"
+    },
+    {
+      "id": "GIT-PR-004",
+      "title": "Describe what changed, why, and how it was verified",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-004-describe-what-changed-why-and-how-it-was-verified",
+      "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/best-practices-for-pull-requests"
+    },
+    {
+      "id": "GIT-PR-005",
+      "title": "Complete the repository's pull request template",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-005-complete-the-repositorys-pull-request-template",
+      "source": "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository"
+    },
+    {
+      "id": "GIT-PR-006",
+      "title": "Link the issues the pull request addresses",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-006-link-the-issues-the-pull-request-addresses",
+      "source": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue"
+    },
+    {
+      "id": "GIT-PR-007",
+      "title": "Call out breaking changes, migrations, and follow-ups",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-007-call-out-breaking-changes-migrations-and-follow-ups",
+      "source": "original"
+    },
+    {
+      "id": "GIT-PR-008",
+      "title": "Keep agent attribution and self-reference out of the pull request",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-008-keep-agent-attribution-and-self-reference-out-of-the-pull-request",
+      "source": "original"
+    },
+    {
+      "id": "GIT-PR-009",
+      "title": "Open unfinished work as a draft",
+      "level": "should",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-009-open-unfinished-work-as-a-draft",
+      "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests"
+    },
+    {
+      "id": "GIT-PR-010",
+      "title": "Make CI green before requesting review",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-010-make-ci-green-before-requesting-review",
+      "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/best-practices-for-pull-requests"
+    },
+    {
+      "id": "GIT-PR-011",
+      "title": "Respond to review with new commits and a reply per thread",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-011-respond-to-review-with-new-commits-and-a-reply-per-thread",
+      "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request"
+    },
+    {
+      "id": "GIT-PR-012",
+      "title": "Update the branch with the repository's chosen strategy",
+      "level": "consider",
+      "severity": "low",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-012-update-the-branch-with-the-repositorys-chosen-strategy",
+      "source": "https://git-scm.com/book/en/v2/Git-Branching-Rebasing"
+    },
+    {
+      "id": "GIT-PR-013",
+      "title": "Show visible changes",
+      "level": "consider",
+      "severity": "info",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-013-show-visible-changes",
+      "source": "original"
+    },
+    {
+      "id": "GIT-PR-014",
+      "title": "Merge only when asked, with checks and approvals satisfied",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "probe"
+      ],
+      "doc": "PULL-REQUESTS.md",
+      "anchor": "PULL-REQUESTS.md#git-pr-014-merge-only-when-asked-with-checks-and-approvals-satisfied",
+      "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges"
+    },
+    {
+      "id": "GIT-WRK-001",
+      "title": "Inspect the repository state before making changes",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-001-inspect-the-repository-state-before-making-changes",
+      "source": "original"
+    },
+    {
+      "id": "GIT-WRK-002",
+      "title": "Discover and follow the repository's conventions",
+      "level": "must",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-002-discover-and-follow-the-repositorys-conventions",
+      "source": "https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project"
+    },
+    {
+      "id": "GIT-WRK-003",
+      "title": "Never commit directly to the default or a protected branch",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-003-never-commit-directly-to-the-default-or-a-protected-branch",
+      "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/best-practices-for-pull-requests"
+    },
+    {
+      "id": "GIT-WRK-004",
+      "title": "Run the repository's hooks and never bypass them",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-004-run-the-repositorys-hooks-and-never-bypass-them",
+      "source": "original"
+    },
+    {
+      "id": "GIT-WRK-005",
+      "title": "Commit under the user's identity",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "static",
+        "probe"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-005-commit-under-the-users-identity",
+      "source": "original"
+    },
+    {
+      "id": "GIT-WRK-006",
+      "title": "Make the change build and pass tests before committing it",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "static",
+        "manual"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-006-make-the-change-build-and-pass-tests-before-committing-it",
+      "source": "original"
+    },
+    {
+      "id": "GIT-WRK-007",
+      "title": "Push and open pull requests only when the task calls for it",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "manual"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-007-push-and-open-pull-requests-only-when-the-task-calls-for-it",
+      "source": "original"
+    },
+    {
+      "id": "GIT-WRK-008",
+      "title": "Leave the user's uncommitted work untouched",
+      "level": "must",
+      "severity": "high",
+      "check": [
+        "manual"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-008-leave-the-users-uncommitted-work-untouched",
+      "source": "original"
+    },
+    {
+      "id": "GIT-WRK-009",
+      "title": "Start from an up-to-date base",
+      "level": "should",
+      "severity": "medium",
+      "check": [
+        "probe"
+      ],
+      "doc": "WORKFLOW.md",
+      "anchor": "WORKFLOW.md#git-wrk-009-start-from-an-up-to-date-base",
+      "source": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging"
+    }
+  ]
+}
