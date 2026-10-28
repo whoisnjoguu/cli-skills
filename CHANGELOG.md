@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Added
 
+- `git-rules`: new skill with 69 rules (GIT-WRK, GIT-BRN, GIT-CMT, GIT-MSG, GIT-PR, GIT-HST) for turning finished work into a branch, focused commits, and a pull request: preflight and convention detection, branch naming, commit splitting, commit messages including Conventional Commits, trailers, DCO, and no agent attribution, pull request titles, descriptions, templates, review, and merging, and history-rewriting safety. Includes a conventions reference and an audit workflow for branches and pull requests.
+- Tooling: `GIT-` rule prefix; `probe-cli.cjs` is optional per skill; each skill bundles its own `LICENSE.txt`; the findings schema gains a `repo` target kind and a `commit` evidence kind (`commit:<sha>` or `pr:<number>`).
 - `cli-rules`: new AGENT-READINESS.md with 10 rules (CLI-AGT-001 to CLI-AGT-010) for CLIs driven by coding agents and automation: structured JSON errors, stable error codes, retry hints, dry-run plans, idempotent mutations, returned identifiers, bounded list output, non-interactive authentication, a machine-readable command tree, and deterministic output.
 - `tui-rules`: CLI-AGT-001 and CLI-AGT-008 added to the CLI baseline.
 - `probe-cli.cjs`: opt-in `json-error` probe that checks usage errors under `--json` (CLI-AGT-001).
