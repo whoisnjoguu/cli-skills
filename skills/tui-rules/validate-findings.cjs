@@ -181,6 +181,9 @@ function semanticChecks(findings, checklist, errors) {
         if (!/^probe:[a-z0-9_]+$/.test(ev.location)) errors.push(`${eat}.location: probe evidence must be "probe:<probe-id>"`);
         if (findings.mode !== "static+probe") errors.push(`${eat}: probe evidence requires mode "static+probe"`);
       }
+      if (ev.kind === "commit" && !/^(commit:[0-9a-f]{7,40}|pr:\d+)$/.test(ev.location)) {
+        errors.push(`${eat}.location: commit evidence must be "commit:<sha>" or "pr:<number>"`);
+      }
     }
   });
 

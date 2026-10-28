@@ -1,0 +1,41 @@
+This skill is part of cli-skills (https://github.com/whoisnjoguu/cli-skills).
+It uses two licenses.
+
+Documentation (*.md) is licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/
+
+  Copyright (c) 2026 Njoguu
+
+  The rules draw on widely published guidance, including "How to Write a
+  Git Commit Message" by Chris Beams (https://cbea.ms/git-commit/), the
+  Conventional Commits specification (https://www.conventionalcommits.org),
+  the Pro Git book (https://git-scm.com/book), the Developer Certificate
+  of Origin (https://developercertificate.org), and the GitHub pull request
+  documentation (https://docs.github.com). Rules that derive from a source
+  link to it in their Source field; rules marked "original" are new to
+  this project.
+
+Scripts and data files (*.cjs, *.json) are licensed under the MIT License:
+
+MIT License
+
+Copyright (c) 2026 Njoguu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

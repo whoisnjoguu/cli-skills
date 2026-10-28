@@ -125,7 +125,7 @@ test("command line: exit codes and streams", () => {
 });
 
 test("real checklists are accepted by the validator", () => {
-  for (const skill of ["cli-rules", "tui-rules"]) {
+  for (const skill of fs.readdirSync(path.join(__dirname, "..", "skills"))) {
     const dir = path.join(__dirname, "..", "skills", skill);
     const real = require(path.join(dir, "checklist.json"));
     const doc = base(

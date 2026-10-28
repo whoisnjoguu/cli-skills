@@ -35,6 +35,19 @@
       "license": "CC-BY-SA-4.0 AND MIT",
       "category": "development",
       "keywords": ["tui", "terminal", "bubbletea", "ratatui", "textual", "audit"]
+    },
+    {
+      "name": "git-rules",
+      "source": "./",
+      "skills": ["./skills/git-rules"],
+      "description": "Deliver changes through git: focused commits, well-formed messages, branch naming, pull requests, and history safety, with no agent attribution.",
+      "version": "0.1.0",
+      "author": { "name": "whoisnjoguu" },
+      "homepage": "https://github.com/whoisnjoguu/cli-skills",
+      "repository": "https://github.com/whoisnjoguu/cli-skills",
+      "license": "CC-BY-SA-4.0 AND MIT",
+      "category": "development",
+      "keywords": ["git", "commits", "branches", "pull-requests", "conventional-commits", "audit"]
     }
   ]
 }

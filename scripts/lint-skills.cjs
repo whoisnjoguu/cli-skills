@@ -7,7 +7,8 @@
  *  1. SKILL.md frontmatter (spec fields only; name matches directory; description bounded;
  *     license references the bundled LICENSE.txt; metadata.version matches package.json)
  *  2. Rule entries parse and every checklist.json is up to date
- *  3. Shared tooling and LICENSE.txt are byte-identical across skills
+ *  3. Shared tooling is byte-identical across skills; probe-cli.cjs is optional per skill,
+ *     and each LICENSE.txt names CC BY-SA 4.0 and ends with the repository MIT text
  *  4. Relative links and #anchors resolve
  *  5. Every rule ID mentioned in a skill exists in that skill's checklist
  *  6. CLI-BASELINE.md rules mirror cli-rules rules (title, level, severity)
@@ -23,13 +24,14 @@ const { buildSkill, githubSlug } = require("./build-checklist.cjs");
 
 const ROOT = path.resolve(__dirname, "..");
 const SKILLS = path.join(ROOT, "skills");
-const SHARED_FILES = ["report-schema.json", "probe-cli.cjs", "validate-findings.cjs", "LICENSE.txt"];
+const SHARED_FILES = ["report-schema.json", "validate-findings.cjs"];
+const OPTIONAL_SHARED_FILES = ["probe-cli.cjs"];
 const CLIG_SECTIONS = [
   "the-basics", "help", "documentation", "output", "errors", "arguments-and-flags", "interactivity",
   "subcommands", "robustness-guidelines", "future-proofing", "signals", "configuration",
   "environment-variables", "naming", "distribution", "analytics",
 ];
-const RULE_REF = /\b((?:CLI|TUI)-[A-Z0-9]{2,5}-\d{3})\b/g;
+const RULE_REF = /\b((?:CLI|TUI|GIT)-[A-Z0-9]{2,5}-\d{3})\b/g;
 
 const errors = [];
 const err = (msg) => errors.push(msg);
@@ -137,6 +139,12 @@ for (const dir of skillDirs) {
 }
 
 // 3. Shared files identical
+function assertIdentical(copies) {
+  const first = fs.readFileSync(copies[0]);
+  for (const p of copies.slice(1)) {
+    if (!first.equals(fs.readFileSync(p))) err(`${rel(p)} differs from ${rel(copies[0])}; shared files must be identical`);
+  }
+}
 if (skillDirs.length > 1) {
   for (const f of SHARED_FILES) {
     const copies = skillDirs.map((d) => path.join(d, f));
@@ -145,19 +153,24 @@ if (skillDirs.length > 1) {
       missing.forEach((p) => err(`${rel(p)}: missing shared file`));
       continue;
     }
-    const first = fs.readFileSync(copies[0]);
-    for (const p of copies.slice(1)) {
-      if (!first.equals(fs.readFileSync(p))) err(`${rel(p)} differs from ${rel(copies[0])}; shared files must be identical`);
-    }
+    assertIdentical(copies);
+  }
+  for (const f of OPTIONAL_SHARED_FILES) {
+    const copies = skillDirs.map((d) => path.join(d, f)).filter((p) => fs.existsSync(p));
+    if (copies.length > 1) assertIdentical(copies);
   }
 }
 
-// 3b. Bundled license carries the repository MIT text verbatim
+// 3b. Each bundled license names the documentation license and carries the repository MIT text verbatim
 for (const dir of skillDirs) {
   const lic = path.join(dir, "LICENSE.txt");
-  if (fs.existsSync(lic) && !fs.readFileSync(lic, "utf8").endsWith(fs.readFileSync(path.join(ROOT, "LICENSE"), "utf8"))) {
-    err(`${rel(lic)}: must end with the repository LICENSE text`);
+  if (!fs.existsSync(lic)) {
+    err(`${rel(lic)}: missing bundled license`);
+    continue;
   }
+  const text = fs.readFileSync(lic, "utf8");
+  if (!text.includes("CC BY-SA 4.0")) err(`${rel(lic)}: must name the CC BY-SA 4.0 documentation license`);
+  if (!text.endsWith(fs.readFileSync(path.join(ROOT, "LICENSE"), "utf8"))) err(`${rel(lic)}: must end with the repository LICENSE text`);
 }
 
 // 4. Links and anchors, 5. rule references
@@ -216,6 +229,12 @@ if (cli && tui) {
   }
   for (const r of cli.checklist.rules) {
     if (!r.id.startsWith("CLI-")) err(`cli-rules/${r.doc}: ${r.id} must use the CLI- prefix`);
+  }
+}
+const git = built.get("git-rules");
+if (git) {
+  for (const r of git.checklist.rules) {
+    if (!r.id.startsWith("GIT-")) err(`git-rules/${r.doc}: ${r.id} must use the GIT- prefix`);
   }
 }
 

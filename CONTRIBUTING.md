@@ -41,11 +41,11 @@ What to do and why, in one to three short paragraphs. Optional short code exampl
 **Verify:** How an auditor checks it: what to grep for, or the exact safe command to run and what to observe.
 ```
 
-- **ID**: `CLI-` or `TUI-`, the file's area code, and the next free three-digit number in that area.
+- **ID**: `CLI-`, `TUI-`, or `GIT-`, the file's area code, and the next free three-digit number in that area.
 - **Level**: `must` breaks scripts or users when violated; `should` is clearly recommended; `consider` depends on context.
 - **Severity** is the default severity when an audit finds the rule violated. `high` means it breaks automation, loses data, leaks secrets, does something destructive without confirmation, or hangs. `medium` is a significant usability or interoperability problem, `low` is polish, and `info` is optional advice.
 - **Check** lists how a rule can be verified: `static` (visible in source), `probe` (observable by running safe, read-only invocations), `manual` (needs human judgment).
-- **Source** is the most specific clig.dev anchor the rule derives from, or `original`.
+- **Source** is the most specific URL the rule derives from (a clig.dev anchor for CLI and TUI rules), or `original`.
 - Titles are plain text, without backticks or emphasis, because they become anchors in `checklist.json`.
 - Non-rule subsections inside a rules section use `####`, not `###`.
 
@@ -66,7 +66,7 @@ Rule IDs appear in published audit reports, so they are permanent:
 
 ## Shared files
 
-`probe-cli.cjs`, `validate-findings.cjs`, `report-schema.json`, and `LICENSE.txt` are copied into every skill so that each skill installs on its own. Edit them in one skill, then copy the file to the others; lint fails if the copies differ.
+`validate-findings.cjs` and `report-schema.json` are copied into every skill so that each skill installs on its own, and `probe-cli.cjs` into every skill that audits a program. Edit them in one skill, then copy the file to the others; lint fails if the copies differ. Each skill has its own `LICENSE.txt`, which must name CC BY-SA 4.0 for the documentation and end with the repository's MIT text.
 
 The CLI rules in `skills/tui-rules/CLI-BASELINE.md` mirror rules in `cli-rules`. If you change the title, level, or severity of a mirrored rule, change both; lint enforces this.
 
